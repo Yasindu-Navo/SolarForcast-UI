@@ -1,17 +1,14 @@
 import React from 'react';
-import { Sun, Activity, RefreshCw, Download, Server } from 'lucide-react';
-import { CSV_DOWNLOAD_URL } from '../services/forecastApi';
+import { Sun, Activity, RefreshCw, Download } from 'lucide-react';
 
 const Header = ({
   unit = 'MW',
   onUnitChange,
   forecastMeta = {},
   onRefresh,
+  onExportCsv,
   isLoading = false,
 }) => {
-  const isExperimental = forecastMeta?.status === 'experimental';
-  const isStale = forecastMeta?.stale;
-
   return (
     <header className="glass-card mb-8 p-5 md:p-6 flex flex-col md:flex-row justify-between items-center relative overflow-hidden group">
       {/* Decorative Glow */}
@@ -78,53 +75,28 @@ const Header = ({
           </div>
         </div>
 
-        {/* Action: CSV Download */}
-        <a
-          href={CSV_DOWNLOAD_URL}
-          download="latest_forecast.csv"
-          target="_blank"
-          rel="noopener noreferrer"
+        {/* Action: CSV Download (Standalone Client-side export) */}
+        <button
+          type="button"
+          onClick={onExportCsv}
           title="Download latest combined forecast as CSV"
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-slate-300 text-xs font-medium transition-colors"
         >
           <Download size={13} />
           <span className="hidden sm:inline">CSV</span>
-        </a>
+        </button>
 
         {/* Action: Refresh / Re-fetch */}
         <button
           type="button"
           onClick={onRefresh}
           disabled={isLoading}
-          title="Reload latest forecast from backend"
+          title="Reload latest forecast"
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-500/20 hover:bg-sky-500/30 border border-sky-500/40 text-sky-300 text-xs font-medium transition-colors disabled:opacity-50"
         >
           <RefreshCw size={13} className={isLoading ? 'animate-spin' : ''} />
           <span>{isLoading ? 'Loading...' : 'Refresh'}</span>
         </button>
-
-        {/* Backend Status indicator */}
-        {/* <div className="text-right hidden lg:block border-l border-slate-800 pl-3">
-          <div className="text-[10px] text-slate-400 flex items-center gap-1">
-            <Server size={10} />
-            <span>Port 8030</span>
-          </div>
-          <div className="text-xs font-semibold flex items-center gap-1.5 justify-end">
-            {isStale ? (
-              <span className="text-amber-400 flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" /> Stale
-              </span>
-            ) : isExperimental ? (
-              <span className="text-emerald-400 flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" /> Active Scenario
-              </span>
-            ) : (
-              <span className="text-sky-400 flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" /> Connected
-              </span>
-            )}
-          </div>
-        </div> */}
       </div>
     </header>
   );

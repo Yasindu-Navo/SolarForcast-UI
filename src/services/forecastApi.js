@@ -1,12 +1,8 @@
 import { SAMPLE_FORECAST_DATA } from './sampleData';
 
-// API base address pointing to CombinedForecastBackend
-export const API_BASE = 'http://localhost:8030';
-export const CSV_DOWNLOAD_URL = `${API_BASE}/api/forecast/combined/latest.csv`;
-
 /**
  * Extract the hour in 0-23 format from ISO timestamp string.
- * Uses string parsing on timezone-annotated timestamps (e.g. 2026-09-27T21:00:00+05:30)
+ * Uses string parsing on timezone-annotated timestamps (e.g. 2024-08-24T21:00:00+05:30)
  * to prevent client browser timezone skew.
  */
 export function getColomboHour(isoString) {
@@ -35,7 +31,7 @@ export function formatHourLabel(isoString) {
 }
 
 /**
- * Format date string e.g. "2026-09-28" to "Mon, Sep 28"
+ * Format date string e.g. "2024-08-24" to "Sat, Aug 24"
  */
 export function formatDateLabel(dateStr) {
   if (!dateStr) return '';
@@ -62,12 +58,10 @@ export function formatDateLabel(dateStr) {
  * Midday Valley Calculation:
  * Hour between 12:00 PM and 6:00 PM (12 to 18)
  * which solar prediction value has highest difference (drop) from the upper hour solar predictions.
- * e.g. solar predictions of 12, 13, 14, 15 hours as 1000, 900, 300, 250 -> midday valley is hour 14 (difference 600).
  */
 export function calculateMiddayValley(hours) {
   if (!hours || hours.length === 0) return null;
 
-  // Build a lookup map by Colombo hour number (0 to 23)
   const hourMap = new Map();
   hours.forEach((h) => {
     const hr = getColomboHour(h.hour_start);
@@ -82,12 +76,10 @@ export function calculateMiddayValley(hours) {
   let maxDiff = -Infinity;
   let valleyHourCandidate = null;
 
-  // Search window between 12:00 PM (12) and 6:00 PM (18)
   for (let hr = 12; hr <= 18; hr++) {
     const current = hourMap.get(hr);
     if (!current) continue;
 
-    // The "upper hour" is the previous hour (hr - 1)
     const upper = hourMap.get(hr - 1);
     if (!upper) continue;
 
@@ -111,7 +103,8 @@ export function calculateMiddayValley(hours) {
 }
 
 /**
- * Normalizes forecast days from API response into clean UI structures.
+ * Normalizes forecast days from dataset into clean UI structures.
+ * Enriches days with holiday flag, CEB advisory text, and risk calculations.
  */
 export function processForecastDays(days) {
   if (!Array.isArray(days)) return [];
@@ -150,6 +143,9 @@ export function processForecastDays(days) {
       dayIndex: index,
       hour_count: dayItem.hour_count ?? hours.length,
       partial_day: Boolean(dayItem.partial_day),
+      isHoliday: Boolean(dayItem.isHoliday),
+      holidayName: dayItem.holidayName || null,
+      cebAdvisory: dayItem.cebAdvisory || null,
       hours,
       dayData: hours,
       peakSolar,
@@ -161,68 +157,84 @@ export function processForecastDays(days) {
 }
 
 /**
- * Fetch latest combined forecast from backend API.
- * Falls back to sample data gracefully if backend is offline.
+ * Load 7-day CEB curtailment scenario forecast (Aug 24 - Aug 30).
+ * Decoupled from backend server - runs standalone with zero network dependencies.
  */
 export async function loadLatestForecast() {
-  try {
-    let res;
-    try {
-      res = await fetch('/api/forecast/combined/latest', {
-        headers: { Accept: 'application/json' },
-      });
-      // Ensure it returned actual json and not html fallback
-      const contentType = res.headers.get('content-type') || '';
-      if (!res.ok || !contentType.includes('application/json')) {
-        throw new Error('Fallback to direct address');
-      }
-    } catch {
-      res = await fetch(`${API_BASE}/api/forecast/combined/latest`, {
-        headers: { Accept: 'application/json' },
-      });
-    }
-
-    if (res.status === 404) {
-      console.warn('No saved latest forecast on backend. Using initial prototype scenario.');
-      return {
-        ...SAMPLE_FORECAST_DATA,
-        isFallback: false,
-      };
-    }
-
-    if (!res.ok) {
-      throw new Error(`Backend error (${res.status}): ${await res.text()}`);
-    }
-
-    const data = await res.json();
-    return {
-      ...data,
-      isFallback: false,
-    };
-  } catch (err) {
-    console.warn(`Unable to reach backend at ${API_BASE}. Falling back to cached forecast data:`, err.message);
-    return {
-      ...SAMPLE_FORECAST_DATA,
-      isFallback: true,
-      fallbackError: err.message,
-    };
-  }
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(JSON.parse(JSON.stringify(SAMPLE_FORECAST_DATA)));
+    }, 100);
+  });
 }
 
 /**
- * Triggers generation of a new 7-day forecast run.
+ * Client-side CSV generator for the 7-day forecast.
+ * Generates and triggers browser download of the complete hourly dataset.
  */
-export async function generateSevenDayForecast() {
-  const url = `${API_BASE}/api/forecast/combined/seven-day`;
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { Accept: 'application/json' },
+export function exportForecastAsCSV(forecastData = SAMPLE_FORECAST_DATA, threshold = 400) {
+  if (!forecastData?.days) return;
+
+  const rows = [
+    [
+      'Date',
+      'Day_Name',
+      'Is_Holiday',
+      'CEB_Advisory',
+      'Hour_Start',
+      'Hour_End',
+      'Hour_Number',
+      'Predicted_Demand_MW',
+      'Predicted_Solar_MW',
+      'Net_Demand_MW',
+      'Threshold_MW',
+      'Curtailment_Risk_Triggered',
+    ].join(','),
+  ];
+
+  forecastData.days.forEach((day) => {
+    const dateLabel = formatDateLabel(day.date);
+    (day.hours || []).forEach((h) => {
+      const demand = h.predicted_demand_mw ?? 0;
+      const solar = h.predicted_solar_mw ?? 0;
+      const net = demand - solar;
+      const risk = net <= threshold ? 'YES' : 'NO';
+      const hr = getColomboHour(h.hour_start);
+
+      rows.push(
+        [
+          day.date,
+          `"${dateLabel}"`,
+          day.isHoliday ? 'YES' : 'NO',
+          `"${day.cebAdvisory || 'Normal'}"`,
+          h.hour_start,
+          h.hour_end,
+          hr,
+          demand.toFixed(1),
+          solar.toFixed(1),
+          net.toFixed(1),
+          threshold,
+          risk,
+        ].join(','),
+      );
+    });
   });
 
-  if (!res.ok) {
-    const detail = await res.text();
-    throw new Error(`Generation failed (${res.status}): ${detail}`);
-  }
+  const csvContent = rows.join('\r\n');
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.setAttribute('href', url);
+  link.setAttribute('download', 'CEB_Solar_Curtailment_Forecast_Aug24_Aug30.csv');
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+}
 
-  return res.json();
+/**
+ * Mock generator for manual re-run triggers
+ */
+export async function generateSevenDayForecast() {
+  return loadLatestForecast();
 }
