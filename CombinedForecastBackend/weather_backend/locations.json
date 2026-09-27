@@ -1,0 +1,17 @@
+[
+  {"name":"Anuradhapura_NorthCentral","latitude":8.312229,"longitude":80.413055},
+  {"name":"Vavuniya_Northern","latitude":8.7514,"longitude":80.4971},
+  {"name":"Hambantota_Southern","latitude":6.123372,"longitude":81.120508},
+  {"name":"Kandy_Central","latitude":7.290572,"longitude":80.633726},
+  {"name":"Kalutara_Western","latitude":6.57932,"longitude":79.964755},
+  {"name":"Moneragala_Uva","latitude":6.872778,"longitude":81.35},
+  {"name":"Galle_Southern","latitude":6.0461,"longitude":80.2103},
+  {"name":"Badulla_Uva","latitude":6.984722,"longitude":81.056389},
+  {"name":"Jaffna_Northern","latitude":9.666667,"longitude":80.0},
+  {"name":"Colombo_Western","latitude":6.927547,"longitude":79.848411},
+  {"name":"Polonnaruwa_NorthCentral","latitude":7.93965,"longitude":81.002744},
+  {"name":"Matara_Southern","latitude":5.948509,"longitude":80.535278},
+  {"name":"Gampaha_Western","latitude":7.089961,"longitude":79.99943},
+  {"name":"Kurunegala_NorthWestern","latitude":7.483636,"longitude":80.366614},
+  {"name":"Kilinochchi_Northern","latitude":9.38338,"longitude":80.400167}
+]

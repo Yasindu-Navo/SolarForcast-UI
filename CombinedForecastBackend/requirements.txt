@@ -1,0 +1,13 @@
+# Versions used for the successful local Windows/Python 3.11 inference check.
+tensorflow==2.21.0
+keras==3.15.1
+numpy==2.4.6
+pandas==2.3.3
+fastapi==0.141.1
+uvicorn==0.53.0
+requests==2.34.2
+pvlib==0.15.2
+tzdata==2026.4
+scikit-learn==1.9.1
+joblib==1.6.0
+threadpoolctl==3.7.0

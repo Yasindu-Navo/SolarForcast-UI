@@ -1,0 +1,178 @@
+{
+  "status": "experimental_historical_weather_model",
+  "selected": "hist_gradient_boosting_leaves15_iterations200",
+  "selection_rule": "Minimum validation hourly MAE among fixed candidates including baseline",
+  "validation_candidates": [
+    {
+      "name": "ghi_linear_baseline",
+      "count": 670,
+      "mae_mw": 90.6122096963469,
+      "rmse_mw": 162.43720210231737,
+      "bias_mw": -87.37568914319402,
+      "p95_absolute_error_mw": 376.01686413002267
+    },
+    {
+      "name": "hist_gradient_boosting_leaves7_iterations100",
+      "count": 670,
+      "mae_mw": 45.42022012466514,
+      "rmse_mw": 79.47717938945166,
+      "bias_mw": -21.9097926815847,
+      "p95_absolute_error_mw": 186.77670404532572
+    },
+    {
+      "name": "hist_gradient_boosting_leaves7_iterations200",
+      "count": 670,
+      "mae_mw": 41.77522677912328,
+      "rmse_mw": 73.08758894909636,
+      "bias_mw": -16.577505969791655,
+      "p95_absolute_error_mw": 173.44948679999575
+    },
+    {
+      "name": "hist_gradient_boosting_leaves15_iterations200",
+      "count": 670,
+      "mae_mw": 37.582553340531895,
+      "rmse_mw": 69.93708787376653,
+      "bias_mw": -11.734908649443726,
+      "p95_absolute_error_mw": 161.494896424523
+    }
+  ],
+  "metrics": {
+    "train": {
+      "model": {
+        "count": 3238,
+        "mae_mw": 14.104226108719475,
+        "rmse_mw": 26.053520448894258,
+        "bias_mw": 0.021345026110261848,
+        "p95_absolute_error_mw": 62.309200881345674
+      },
+      "baseline": {
+        "count": 3238,
+        "mae_mw": 42.33326591241797,
+        "rmse_mw": 86.44328239257443,
+        "bias_mw": -3.7273601146658732,
+        "p95_absolute_error_mw": 202.93596742624274
+      },
+      "daylight_model": {
+        "count": 1620,
+        "mae_mw": 27.281020727638253,
+        "rmse_mw": 36.810321717180564,
+        "bias_mw": -0.8268295758626739,
+        "p95_absolute_error_mw": 77.56883049923161
+      },
+      "daylight_baseline": {
+        "count": 1620,
+        "mae_mw": 84.48622520948429,
+        "rmse_mw": 122.20928749466935,
+        "bias_mw": -7.552412152018329,
+        "p95_absolute_error_mw": 268.2905318109444
+      },
+      "daily_energy_model": {
+        "complete_days": 134,
+        "excluded_partial_days": 2,
+        "mae_mwh": 190.4702053642533
+      },
+      "daily_energy_baseline": {
+        "complete_days": 134,
+        "excluded_partial_days": 2,
+        "mae_mwh": 762.4020269034542
+      }
+    },
+    "validation": {
+      "model": {
+        "count": 670,
+        "mae_mw": 37.582553340531895,
+        "rmse_mw": 69.93708787376653,
+        "bias_mw": -11.734908649443726,
+        "p95_absolute_error_mw": 161.494896424523
+      },
+      "baseline": {
+        "count": 670,
+        "mae_mw": 90.6122096963469,
+        "rmse_mw": 162.43720210231737,
+        "bias_mw": -87.37568914319402,
+        "p95_absolute_error_mw": 376.01686413002267
+      },
+      "daylight_model": {
+        "count": 336,
+        "mae_mw": 72.52204570075958,
+        "rmse_mw": 98.69002552628668,
+        "bias_mw": -25.632180959329496,
+        "p95_absolute_error_mw": 184.46823630246112
+      },
+      "daylight_baseline": {
+        "count": 336,
+        "mae_mw": 180.56898957307268,
+        "rmse_mw": 229.3759319429329,
+        "bias_mw": -174.1152134700595,
+        "p95_absolute_error_mw": 435.16218757821855
+      },
+      "daily_energy_model": {
+        "complete_days": 27,
+        "excluded_partial_days": 3,
+        "mae_mwh": 707.1708490832704
+      },
+      "daily_energy_baseline": {
+        "complete_days": 27,
+        "excluded_partial_days": 3,
+        "mae_mwh": 2087.4516925210187
+      }
+    },
+    "historical_holdout": {
+      "model": {
+        "count": 699,
+        "mae_mw": 36.86599037887437,
+        "rmse_mw": 67.29264892994892,
+        "bias_mw": -19.873671382112,
+        "p95_absolute_error_mw": 160.58435161162313
+      },
+      "baseline": {
+        "count": 699,
+        "mae_mw": 86.37371595075895,
+        "rmse_mw": 150.85299025385174,
+        "bias_mw": -84.51544403232447,
+        "p95_absolute_error_mw": 349.54922661442276
+      },
+      "daylight_model": {
+        "count": 348,
+        "mae_mw": 72.03167463288952,
+        "rmse_mw": 95.31945712626607,
+        "bias_mw": -41.93678390426413,
+        "p95_absolute_error_mw": 194.9447602398858
+      },
+      "daylight_baseline": {
+        "count": 348,
+        "mae_mw": 173.48312811837698,
+        "rmse_mw": 213.79762274980902,
+        "bias_mw": -169.76837426143706,
+        "p95_absolute_error_mw": 391.91660684220705
+      },
+      "daily_energy_model": {
+        "complete_days": 28,
+        "excluded_partial_days": 2,
+        "mae_mwh": 631.326861077708
+      },
+      "daily_energy_baseline": {
+        "complete_days": 28,
+        "excluded_partial_days": 2,
+        "mae_mwh": 2023.9086704564231
+      }
+    }
+  },
+  "sklearn_version": "1.9.1",
+  "feature_count": 90,
+  "dataset_sha256": "d65abedf081c4646cb6f557c0e090889dbdbc40b3d359602a207b1eb9424f7a9",
+  "model_sha256": "ca499f64cc303cb80b337af17530f4e509bf01787cc51146a8c3de16a11cb3f0",
+  "baseline_coefficient": 1.4640304182538315,
+  "roundtrip_verified": true,
+  "seven_day_forecast_accuracy_validated": false,
+  "deployed": false,
+  "limitations": [
+    "Legacy weather offset is an explicit assumption, not verified source timezone metadata.",
+    "Source irradiance interval convention and wind units remain unverified.",
+    "Solcast historical estimates/observations are not Open-Meteo future forecasts.",
+    "This dataset cannot establish day-1 through day-7 forecast skill.",
+    "Historical holdout dates have been inspected in previous experiments; not an untouched final test.",
+    "Six months of historical targets do not establish full-year or current-capacity performance."
+  ],
+  "stopping_reason": "Fixed small candidate grid completed; validation selected complexity; no holdout tuning."
+}

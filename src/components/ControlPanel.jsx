@@ -14,7 +14,7 @@ const ControlPanel = ({ threshold, setThreshold, unit }) => {
   };
 
   return (
-    <div className="glass-card p-6 mb-8 flex items-center justify-between flex-wrap gap-6 relative overflow-hidden">
+    <div className="glass-card control-panel p-6 mb-8 flex items-center justify-between flex-wrap gap-6 relative overflow-hidden">
       {/* Background Accent */}
       <div className="absolute -right-20 -top-20 w-64 h-64 bg-slate-800/30 rounded-full blur-3xl pointer-events-none" />
 
@@ -34,7 +34,7 @@ const ControlPanel = ({ threshold, setThreshold, unit }) => {
             Curtailment Risk Threshold (MW)
             <div className="group relative">
                <Info size={12} className="text-slate-600 cursor-help hover:text-sky-400 transition-colors" />
-               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2 bg-slate-900 border border-slate-700 rounded-lg text-xs text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl z-50">
+               <div className="control-panel-tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2 bg-slate-900 border border-slate-700 rounded-lg text-xs text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl z-50">
                   Trigger curtailment alert when the solar generation minus net load exceeds this threshold in MW.
                </div>
             </div>
@@ -44,7 +44,7 @@ const ControlPanel = ({ threshold, setThreshold, unit }) => {
               type="number" 
               value={localVal}
               onChange={(e) => setLocalVal(e.target.value)}
-              className="w-24 bg-transparent border-none text-white focus:ring-0 p-0 font-mono text-2xl font-bold tracking-tight text-right"
+              className="control-panel-input w-24 bg-transparent border-none text-white focus:ring-0 p-0 font-mono text-2xl font-bold tracking-tight text-right"
             />
             <span className="text-sm text-slate-500 font-bold mt-1">MW</span>
           </div>

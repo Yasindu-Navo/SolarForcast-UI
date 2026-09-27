@@ -1,0 +1,402 @@
+{
+  "pipeline_version": "2026-09-24-demand-lstm-v9-direct-features",
+  "config": {
+    "architecture": "direct",
+    "seed": 42,
+    "window_size": 168,
+    "train_fraction": 0.7,
+    "val_fraction": 0.15,
+    "test_fraction": 0.15,
+    "lstm_units_1": 48,
+    "lstm_units_2": 24,
+    "dense_units": 24,
+    "dropout": 0.3,
+    "l2_regularization": 3e-05,
+    "learning_rate": 0.0002,
+    "batch_size": 32,
+    "epochs": 150,
+    "patience": 12,
+    "early_stop_min_delta": 0.0005,
+    "huber_delta": 0.08,
+    "min_valid_demand_mw": 500.0,
+    "peak_sample_weight": 0.4,
+    "valley_sample_weight": 0.25,
+    "ramp_sample_weight": 0.45,
+    "hour_correction_strength": 0.6,
+    "max_hour_correction_mw": 140.0,
+    "amplitude_correction_strength": 0.55,
+    "value_bin_correction_strength": 0.45,
+    "max_value_bin_correction_mw": 125.0,
+    "calibration_bias_penalty": 0.15
+  },
+  "feature_columns": [
+    "Demand_MW",
+    "demand_lag_1h",
+    "demand_lag_2h",
+    "demand_lag_24h",
+    "demand_lag_25h",
+    "demand_lag_168h",
+    "demand_roll_24h_mean",
+    "demand_roll_24h_std",
+    "demand_roll_168h_mean",
+    "demand_roll_168h_std",
+    "demand_ramp_1h",
+    "demand_ramp_24h",
+    "Weekend",
+    "hour_sin",
+    "hour_cos",
+    "dow_sin",
+    "dow_cos",
+    "month_sin",
+    "month_cos",
+    "quarter_sin",
+    "quarter_cos",
+    "target_Weekend",
+    "target_hour_sin",
+    "target_hour_cos",
+    "target_dow_sin",
+    "target_dow_cos",
+    "target_month_sin",
+    "target_month_cos",
+    "target_quarter_sin",
+    "target_quarter_cos"
+  ],
+  "x_scaler": {
+    "columns": [
+      "Demand_MW",
+      "demand_lag_1h",
+      "demand_lag_2h",
+      "demand_lag_24h",
+      "demand_lag_25h",
+      "demand_lag_168h",
+      "demand_roll_24h_mean",
+      "demand_roll_24h_std",
+      "demand_roll_168h_mean",
+      "demand_roll_168h_std",
+      "demand_ramp_1h",
+      "demand_ramp_24h",
+      "Weekend",
+      "hour_sin",
+      "hour_cos",
+      "dow_sin",
+      "dow_cos",
+      "month_sin",
+      "month_cos",
+      "quarter_sin",
+      "quarter_cos",
+      "target_Weekend",
+      "target_hour_sin",
+      "target_hour_cos",
+      "target_dow_sin",
+      "target_dow_cos",
+      "target_month_sin",
+      "target_month_cos",
+      "target_quarter_sin",
+      "target_quarter_cos"
+    ],
+    "min_": [
+      733.2718958,
+      733.2718958,
+      733.2718958,
+      733.2718958,
+      733.2718958,
+      733.2718958,
+      1268.9752289791666,
+      172.34764421011474,
+      1448.8663331386904,
+      292.6239334288876,
+      -448.55275300000017,
+      -927.3356520000002,
+      0.0,
+      -1.0,
+      -1.0,
+      -0.9749279121818236,
+      -0.9009688679024191,
+      -0.8660254037844384,
+      -1.0,
+      -1.0,
+      -1.0,
+      0.0,
+      -1.0,
+      -1.0,
+      -0.9749279121818236,
+      -0.9009688679024191,
+      -0.8660254037844384,
+      -1.0,
+      -1.0,
+      -1.0
+    ],
+    "max_": [
+      2796.55375,
+      2796.55375,
+      2796.55375,
+      2796.55375,
+      2796.55375,
+      2796.55375,
+      2057.140623125,
+      606.4772564020419,
+      1917.4013448690475,
+      440.35247211526286,
+      481.20081900000014,
+      1274.3641922000002,
+      1.0,
+      1.0,
+      1.0,
+      0.9749279121818236,
+      1.0,
+      1.0,
+      0.8660254037844387,
+      1.0,
+      6.123233995736766e-17,
+      1.0,
+      1.0,
+      1.0,
+      0.9749279121818236,
+      1.0,
+      1.0,
+      0.8660254037844387,
+      1.0,
+      6.123233995736766e-17
+    ]
+  },
+  "y_scaler": {
+    "columns": [
+      "Demand_MW"
+    ],
+    "min_": [
+      733.2718958
+    ],
+    "max_": [
+      2796.55375
+    ]
+  },
+  "train_end": 5425,
+  "val_end": 6588,
+  "cleaning_report": {
+    "min_valid_demand_mw": 500.0,
+    "low_demand_rows_cleaned": 5,
+    "lowest_original_rows": [
+      {
+        "Datetime": "2025-02-09 12:00:00",
+        "Demand_MW": 3.50609
+      },
+      {
+        "Datetime": "2025-02-09 13:00:00",
+        "Demand_MW": 26.9080415
+      },
+      {
+        "Datetime": "2025-02-09 14:00:00",
+        "Demand_MW": 137.9147573
+      },
+      {
+        "Datetime": "2025-02-09 11:00:00",
+        "Demand_MW": 227.6895435
+      },
+      {
+        "Datetime": "2025-02-09 15:00:00",
+        "Demand_MW": 493.7348948
+      }
+    ]
+  },
+  "validation_calibration": {
+    "selection_metric": "validation_mae_plus_bias_penalty",
+    "bias_penalty": 0.15,
+    "raw_validation_score": 75.86720217407768,
+    "selected_validation_score": 53.63059347683732,
+    "amplitude": {
+      "max_strength": 0.55,
+      "selected_strength": 0.33000000000000007,
+      "raw_slope": 1.0398062623320128,
+      "raw_intercept_mw": -89.31347195411351,
+      "applied_slope": 1.0131360665695641,
+      "applied_intercept_mw": -29.473445744857464
+    },
+    "hourly_bias": {
+      "max_strength": 0.6,
+      "selected_strength": 0.6,
+      "max_correction_mw": 140.0,
+      "hourly_correction_mw": {
+        "0": 6.849269369133862,
+        "1": 7.230987804995753,
+        "2": -4.8464251021469895,
+        "3": -9.528814139024211,
+        "4": -2.056238335395082,
+        "5": 53.86341981473409,
+        "6": 26.134980461040747,
+        "7": -128.50196411443332,
+        "8": -66.71291278636551,
+        "9": -85.05917847223003,
+        "10": -59.545193175938664,
+        "11": -19.35282662098884,
+        "12": -20.747962695325274,
+        "13": -51.8947880532579,
+        "14": 12.644833088596526,
+        "15": 46.58320373279037,
+        "16": 37.476759655414895,
+        "17": -19.38650679808066,
+        "18": 35.95120422631644,
+        "19": -11.445042320316253,
+        "20": -24.734013753669466,
+        "21": 25.086962059660035,
+        "22": 5.3165118545650865,
+        "23": 7.639475730429035
+      },
+      "validation_residual_summary": {
+        "0": {
+          "count": 48,
+          "mean_residual_mw": 11.415448948556437
+        },
+        "1": {
+          "count": 49,
+          "mean_residual_mw": 12.05164634165959
+        },
+        "2": {
+          "count": 49,
+          "mean_residual_mw": -8.077375170244983
+        },
+        "3": {
+          "count": 49,
+          "mean_residual_mw": -15.881356898373687
+        },
+        "4": {
+          "count": 49,
+          "mean_residual_mw": -3.4270638923251364
+        },
+        "5": {
+          "count": 49,
+          "mean_residual_mw": 89.77236635789015
+        },
+        "6": {
+          "count": 49,
+          "mean_residual_mw": 43.558300768401246
+        },
+        "7": {
+          "count": 49,
+          "mean_residual_mw": -214.16994019072223
+        },
+        "8": {
+          "count": 49,
+          "mean_residual_mw": -111.18818797727586
+        },
+        "9": {
+          "count": 49,
+          "mean_residual_mw": -141.76529745371673
+        },
+        "10": {
+          "count": 49,
+          "mean_residual_mw": -99.24198862656445
+        },
+        "11": {
+          "count": 49,
+          "mean_residual_mw": -32.2547110349814
+        },
+        "12": {
+          "count": 48,
+          "mean_residual_mw": -34.579937825542125
+        },
+        "13": {
+          "count": 48,
+          "mean_residual_mw": -86.4913134220965
+        },
+        "14": {
+          "count": 48,
+          "mean_residual_mw": 21.074721814327543
+        },
+        "15": {
+          "count": 48,
+          "mean_residual_mw": 77.63867288798396
+        },
+        "16": {
+          "count": 48,
+          "mean_residual_mw": 62.461266092358166
+        },
+        "17": {
+          "count": 48,
+          "mean_residual_mw": -32.31084466346777
+        },
+        "18": {
+          "count": 48,
+          "mean_residual_mw": 59.91867371052741
+        },
+        "19": {
+          "count": 48,
+          "mean_residual_mw": -19.075070533860423
+        },
+        "20": {
+          "count": 48,
+          "mean_residual_mw": -41.22335625611578
+        },
+        "21": {
+          "count": 48,
+          "mean_residual_mw": 41.811603432766724
+        },
+        "22": {
+          "count": 48,
+          "mean_residual_mw": 8.860853090941811
+        },
+        "23": {
+          "count": 48,
+          "mean_residual_mw": 12.732459550715058
+        }
+      }
+    },
+    "value_bin": {
+      "enabled": true,
+      "strength": 0.45,
+      "max_correction_mw": 125.0,
+      "bins": [
+        {
+          "min_predicted_mw": 761.8235793076431,
+          "max_predicted_mw": 1488.7125774311073,
+          "count": 233,
+          "mean_residual_mw": -22.23575955256484,
+          "correction_mw": -10.006091798654179
+        },
+        {
+          "min_predicted_mw": 1488.7125774311073,
+          "max_predicted_mw": 1655.723963970178,
+          "count": 232,
+          "mean_residual_mw": 3.2823508603238736,
+          "correction_mw": 1.4770578871457432
+        },
+        {
+          "min_predicted_mw": 1655.723963970178,
+          "max_predicted_mw": 1847.1676865930417,
+          "count": 233,
+          "mean_residual_mw": 10.262244778160262,
+          "correction_mw": 4.618010150172118
+        },
+        {
+          "min_predicted_mw": 1847.1676865930417,
+          "max_predicted_mw": 2170.8813261366176,
+          "count": 232,
+          "mean_residual_mw": 10.366995096452406,
+          "correction_mw": 4.665147793403583
+        },
+        {
+          "min_predicted_mw": 2170.8813261366176,
+          "max_predicted_mw": 2835.671311647421,
+          "count": 233,
+          "mean_residual_mw": -7.5066730475081345,
+          "correction_mw": -3.3780028713786607
+        }
+      ]
+    }
+  },
+  "metrics": {
+    "raw": {
+      "mae_mw": 79.08029984638817,
+      "mse": 11871.492036387892,
+      "rmse_mw": 108.95637675871886,
+      "mape_pct": 4.9812987049689905,
+      "bias_mw": 23.384345119328792
+    },
+    "corrected": {
+      "mae_mw": 63.54404578730995,
+      "mse": 7670.816402107789,
+      "rmse_mw": 87.58319703063933,
+      "mape_pct": 3.885215900081866,
+      "bias_mw": 5.983899111837037
+    }
+  }
+}
