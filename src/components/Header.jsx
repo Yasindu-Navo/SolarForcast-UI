@@ -104,7 +104,7 @@ const Header = ({
         </button>
 
         {/* Backend Status indicator */}
-        <div className="text-right hidden lg:block border-l border-slate-800 pl-3">
+        {/* <div className="text-right hidden lg:block border-l border-slate-800 pl-3">
           <div className="text-[10px] text-slate-400 flex items-center gap-1">
             <Server size={10} />
             <span>Port 8030</span>
@@ -124,7 +124,7 @@ const Header = ({
               </span>
             )}
           </div>
-        </div>
+        </div> */}
       </div>
     </header>
   );

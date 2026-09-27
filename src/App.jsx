@@ -68,7 +68,7 @@ function App() {
 
         <main>
           {/* Official Scenario Disclaimer & Provenance Alert */}
-          <div className="mb-6 p-4 rounded-2xl bg-slate-900/80 border border-slate-800 backdrop-blur-md flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs shadow-lg">
+          {/* <div className="mb-6 p-4 rounded-2xl bg-slate-900/80 border border-slate-800 backdrop-blur-md flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs shadow-lg">
             <div className="flex items-start gap-2.5">
               <Info className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
               <div>
@@ -91,7 +91,7 @@ function App() {
                 <span>Generated: {new Date(forecastResponse.generated_at).toLocaleString()}</span>
               </div>
             )}
-          </div>
+          </div> */}
 
           {forecastResponse?.isFallback && (
             <div className="mb-6 p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs flex items-center gap-2">
