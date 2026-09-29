@@ -213,11 +213,21 @@ export async function loadLatestForecast() {
  * Triggers generation of a new 7-day forecast run.
  */
 export async function generateSevenDayForecast() {
-  const url = `${API_BASE}/api/forecast/combined/seven-day`;
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { Accept: 'application/json' },
-  });
+  let res;
+  try {
+    res = await fetch('/api/forecast/combined/seven-day', {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+    });
+    if (!res.ok) {
+      throw new Error(`Proxy error ${res.status}`);
+    }
+  } catch {
+    res = await fetch(`${API_BASE}/api/forecast/combined/seven-day`, {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+    });
+  }
 
   if (!res.ok) {
     const detail = await res.text();

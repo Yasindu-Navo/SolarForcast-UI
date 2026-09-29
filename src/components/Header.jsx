@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sun, Activity, RefreshCw, Download, Server } from 'lucide-react';
+import { Sun, Activity, RefreshCw, Download, Sparkles, Server } from 'lucide-react';
 import { CSV_DOWNLOAD_URL } from '../services/forecastApi';
 
 const Header = ({
@@ -7,10 +7,12 @@ const Header = ({
   onUnitChange,
   forecastMeta = {},
   onRefresh,
+  onGenerate,
   isLoading = false,
+  isGenerating = false,
 }) => {
+  const isStale = Boolean(forecastMeta?.stale);
   const isExperimental = forecastMeta?.status === 'experimental';
-  const isStale = forecastMeta?.stale;
 
   return (
     <header className="glass-card mb-8 p-5 md:p-6 flex flex-col md:flex-row justify-between items-center relative overflow-hidden group">
@@ -42,7 +44,24 @@ const Header = ({
         </div>
       </div>
 
-      <div className="mt-4 md:mt-0 flex items-center gap-3 z-10 flex-wrap justify-end w-full md:w-auto">
+      <div className="mt-4 md:mt-0 flex items-center gap-2.5 z-10 flex-wrap justify-end w-full md:w-auto">
+        {/* Status Badge */}
+        {forecastMeta?.forecast_id && (
+          <div className="hidden sm:flex items-center mr-1">
+            {isStale ? (
+              <span className="text-[10px] px-2.5 py-1 rounded-full font-semibold bg-amber-500/15 border border-amber-500/40 text-amber-300 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
+                Stale (Past Run)
+              </span>
+            ) : (
+              <span className="text-[10px] px-2.5 py-1 rounded-full font-semibold bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                Live Forecast
+              </span>
+            )}
+          </div>
+        )}
+
         {/* Unit Toggle */}
         <div className="px-2 py-1 rounded-full bg-slate-950/60 border border-slate-800 text-[10px] font-semibold text-slate-400 uppercase tracking-wider backdrop-blur-md flex items-center gap-1.5">
           <span className="text-slate-500 pl-1">Units</span>
@@ -95,36 +114,25 @@ const Header = ({
         <button
           type="button"
           onClick={onRefresh}
-          disabled={isLoading}
+          disabled={isLoading || isGenerating}
           title="Reload latest forecast from backend"
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-500/20 hover:bg-sky-500/30 border border-sky-500/40 text-sky-300 text-xs font-medium transition-colors disabled:opacity-50"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-slate-300 text-xs font-medium transition-colors disabled:opacity-50"
         >
           <RefreshCw size={13} className={isLoading ? 'animate-spin' : ''} />
-          <span>{isLoading ? 'Loading...' : 'Refresh'}</span>
+          <span className="hidden sm:inline">Refresh</span>
         </button>
 
-        {/* Backend Status indicator */}
-        {/* <div className="text-right hidden lg:block border-l border-slate-800 pl-3">
-          <div className="text-[10px] text-slate-400 flex items-center gap-1">
-            <Server size={10} />
-            <span>Port 8030</span>
-          </div>
-          <div className="text-xs font-semibold flex items-center gap-1.5 justify-end">
-            {isStale ? (
-              <span className="text-amber-400 flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" /> Stale
-              </span>
-            ) : isExperimental ? (
-              <span className="text-emerald-400 flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" /> Active Scenario
-              </span>
-            ) : (
-              <span className="text-sky-400 flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" /> Connected
-              </span>
-            )}
-          </div>
-        </div> */}
+        {/* Action: Generate Live Forecast (POST /api/forecast/combined/seven-day) */}
+        <button
+          type="button"
+          onClick={onGenerate}
+          disabled={isGenerating || isLoading}
+          title="Execute live weather retrieval and model inference to generate today's forecast"
+          className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-bold text-xs shadow-md shadow-amber-500/20 transition-all disabled:opacity-50"
+        >
+          <Sparkles size={13} className={isGenerating ? 'animate-spin' : ''} />
+          <span>{isGenerating ? 'Generating...' : 'Generate New'}</span>
+        </button>
       </div>
     </header>
   );
