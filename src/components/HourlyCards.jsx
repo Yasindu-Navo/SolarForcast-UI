@@ -31,11 +31,11 @@ const HourlyCards = ({ selectedDayData = [], threshold, unit = 'MW', dayMeta = {
             <h3 className="text-sm md:text-base font-semibold text-slate-100">
               Hourly Profile ({selectedDayData.length} Hours)
             </h3>
-            {isPartial && (
+            {/* {isPartial && (
               <span className="text-[10px] px-2 py-0.5 rounded-full bg-sky-500/15 text-sky-300 border border-sky-500/40 font-semibold tracking-wide">
                 API Window Only (No Past Hours)
               </span>
-            )}
+            )} */}
           </div>
           <p className="text-[11px] md:text-xs text-slate-400 mt-0.5">
             Scroll horizontally to view chronological hourly load and solar forecasts.

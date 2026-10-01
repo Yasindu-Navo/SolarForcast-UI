@@ -1,0 +1,2186 @@
+{
+  "forecast_id": "20260929T161543Z_3d731eba",
+  "generated_at": "2026-09-29T16:15:43.111602+00:00",
+  "status": "experimental",
+  "timezone": "Asia/Colombo",
+  "window_start": "2026-09-29T22:00:00+05:30",
+  "window_end": "2026-10-06T00:00:00+05:30",
+  "hour_count": 146,
+  "units": "MW",
+  "errors": {},
+  "demand_mode": "historical_seed_scenario",
+  "seven_day_accuracy_validated": false,
+  "warnings": [
+    "Demand scenario uses assumed history from 2025, not current observations.",
+    "Solar uses forecast weather and an experimental weather model.",
+    "Past hours and the current incomplete hour are omitted, not zero.",
+    "Demand timestamp start/end convention requires source-provider confirmation."
+  ],
+  "demand_details": {
+    "status": "scenario",
+    "live_demand_available": false,
+    "seven_day_accuracy_validated": false,
+    "historical_source": {
+      "source_start": "2025-09-16 22:00:00",
+      "source_end": "2025-09-30 21:00:00",
+      "selection": "Same ending weekday/hour; closest day-of-year among complete blocks"
+    },
+    "history_sha256": "b80e4359c4f2391d9a73bfa472672d399884a980b0923c98c72ae9a80d12b3b2",
+    "model_sha256": "2ae3e40aa44dc71f8f90eaf1c6ed1054ddfd54014eae06c1c4f0675865f37428",
+    "pipeline_version": "2026-09-24-demand-lstm-v9-direct-features",
+    "cleaning": {
+      "min_valid_demand_mw": 500.0,
+      "low_demand_rows_cleaned": 5,
+      "lowest_original_rows": [
+        {
+          "Datetime": "2025-02-09 12:00:00",
+          "Demand_MW": 3.50609
+        },
+        {
+          "Datetime": "2025-02-09 13:00:00",
+          "Demand_MW": 26.9080415
+        },
+        {
+          "Datetime": "2025-02-09 14:00:00",
+          "Demand_MW": 137.9147573
+        },
+        {
+          "Datetime": "2025-02-09 11:00:00",
+          "Demand_MW": 227.6895435
+        },
+        {
+          "Datetime": "2025-02-09 15:00:00",
+          "Demand_MW": 493.7348948
+        }
+      ]
+    },
+    "recursion": "Raw nonnegative predictions feed history; calibration applied to output only"
+  },
+  "solar_details": {
+    "forecast_id": "20260929T161547Z_316eb25c",
+    "generated_at": "2026-09-29T16:15:47.580475+00:00",
+    "status": "experimental",
+    "historical_replay": false,
+    "seven_day_forecast_accuracy_validated": false,
+    "timezone": "Asia/Colombo",
+    "window_start": "2026-09-29T22:00:00+05:30",
+    "window_end": "2026-10-06T22:00:00+05:30",
+    "hour_count": 168,
+    "units": "hourly mean MW",
+    "weather_snapshot_id": "20260929T161543Z_e2f36c01",
+    "weather_retrieved_at": "2026-09-29T16:15:43.111602+00:00",
+    "provider_issue_time": null,
+    "weather_csv_sha256": "fdaa73216bc7706ce10995f10b797a136eb9f9835adfafc010012ea98df41e87",
+    "model": "hist_gradient_boosting_leaves15_iterations200",
+    "model_sha256": "ca499f64cc303cb80b337af17530f4e509bf01787cc51146a8c3de16a11cb3f0",
+    "legacy_weather_shift_applied": false,
+    "postprocessing": "clip negative predictions to zero",
+    "warnings": [
+      "Legacy weather offset is an explicit assumption, not verified source timezone metadata.",
+      "Source irradiance interval convention and wind units remain unverified.",
+      "Solcast historical estimates/observations are not Open-Meteo future forecasts.",
+      "This dataset cannot establish day-1 through day-7 forecast skill.",
+      "Historical holdout dates have been inspected in previous experiments; not an untouched final test.",
+      "Six months of historical targets do not establish full-year or current-capacity performance.",
+      "No prediction intervals or operational accuracy claim are available.",
+      "No additional night-zero mask was applied; small night predictions may remain."
+    ]
+  },
+  "predictions": [
+    {
+      "hour_start": "2026-09-29T22:00:00+05:30",
+      "hour_end": "2026-09-29T23:00:00+05:30",
+      "predicted_demand_mw": 2202.2714257267753,
+      "raw_predicted_demand_mw": 2200.8952558943797,
+      "predicted_solar_mw": 3.3540123442904277
+    },
+    {
+      "hour_start": "2026-09-29T23:00:00+05:30",
+      "hour_end": "2026-09-30T00:00:00+05:30",
+      "predicted_demand_mw": 1997.235438452705,
+      "raw_predicted_demand_mw": 1988.2860033740753,
+      "predicted_solar_mw": 3.3540123442904277
+    },
+    {
+      "hour_start": "2026-09-30T00:00:00+05:30",
+      "hour_end": "2026-09-30T01:00:00+05:30",
+      "predicted_demand_mw": 1814.3703323267098,
+      "raw_predicted_demand_mw": 1808.6183672807251,
+      "predicted_solar_mw": 3.3540123442904277
+    },
+    {
+      "hour_start": "2026-09-30T01:00:00+05:30",
+      "hour_end": "2026-09-30T02:00:00+05:30",
+      "predicted_demand_mw": 1716.0291244746818,
+      "raw_predicted_demand_mw": 1711.1754575418968,
+      "predicted_solar_mw": 0.44756820067812325
+    },
+    {
+      "hour_start": "2026-09-30T02:00:00+05:30",
+      "hour_end": "2026-09-30T03:00:00+05:30",
+      "predicted_demand_mw": 1661.648961326546,
+      "raw_predicted_demand_mw": 1669.4211940852333,
+      "predicted_solar_mw": 0.604052196548483
+    },
+    {
+      "hour_start": "2026-09-30T03:00:00+05:30",
+      "hour_end": "2026-09-30T04:00:00+05:30",
+      "predicted_demand_mw": 1644.8007093572194,
+      "raw_predicted_demand_mw": 1660.5132981300721,
+      "predicted_solar_mw": 0.604052196548483
+    },
+    {
+      "hour_start": "2026-09-30T04:00:00+05:30",
+      "hour_end": "2026-09-30T05:00:00+05:30",
+      "predicted_demand_mw": 1760.8779059103636,
+      "raw_predicted_demand_mw": 1764.60955130521,
+      "predicted_solar_mw": 0.604052196548483
+    },
+    {
+      "hour_start": "2026-09-30T05:00:00+05:30",
+      "hour_end": "2026-09-30T06:00:00+05:30",
+      "predicted_demand_mw": 2022.5169248845866,
+      "raw_predicted_demand_mw": 1967.6150803426472,
+      "predicted_solar_mw": 0.604052196548483
+    },
+    {
+      "hour_start": "2026-09-30T06:00:00+05:30",
+      "hour_end": "2026-09-30T07:00:00+05:30",
+      "predicted_demand_mw": 2066.647248184478,
+      "raw_predicted_demand_mw": 2038.5421404135566,
+      "predicted_solar_mw": 73.67822272259966
+    },
+    {
+      "hour_start": "2026-09-30T07:00:00+05:30",
+      "hour_end": "2026-09-30T08:00:00+05:30",
+      "predicted_demand_mw": 1853.8528138802342,
+      "raw_predicted_demand_mw": 1981.1387060202985,
+      "predicted_solar_mw": 369.4071277199714
+    },
+    {
+      "hour_start": "2026-09-30T08:00:00+05:30",
+      "hour_end": "2026-09-30T09:00:00+05:30",
+      "predicted_demand_mw": 1808.1976302365792,
+      "raw_predicted_demand_mw": 1875.1340923536138,
+      "predicted_solar_mw": 678.0995172414964
+    },
+    {
+      "hour_start": "2026-09-30T09:00:00+05:30",
+      "hour_end": "2026-09-30T10:00:00+05:30",
+      "predicted_demand_mw": 1749.8129719098588,
+      "raw_predicted_demand_mw": 1835.6148274078655,
+      "predicted_solar_mw": 930.5036903454761
+    },
+    {
+      "hour_start": "2026-09-30T10:00:00+05:30",
+      "hour_end": "2026-09-30T11:00:00+05:30",
+      "predicted_demand_mw": 1756.3145019872775,
+      "raw_predicted_demand_mw": 1816.8488828854797,
+      "predicted_solar_mw": 1114.2097110821553
+    },
+    {
+      "hour_start": "2026-09-30T11:00:00+05:30",
+      "hour_end": "2026-09-30T12:00:00+05:30",
+      "predicted_demand_mw": 1766.4266156364688,
+      "raw_predicted_demand_mw": 1787.1586429480062,
+      "predicted_solar_mw": 1191.893648771494
+    },
+    {
+      "hour_start": "2026-09-30T12:00:00+05:30",
+      "hour_end": "2026-09-30T13:00:00+05:30",
+      "predicted_demand_mw": 1788.511099225814,
+      "raw_predicted_demand_mw": 1810.333831788319,
+      "predicted_solar_mw": 1176.3467446670356
+    },
+    {
+      "hour_start": "2026-09-30T13:00:00+05:30",
+      "hour_end": "2026-09-30T14:00:00+05:30",
+      "predicted_demand_mw": 1866.4231570988927,
+      "raw_predicted_demand_mw": 1917.9321585924265,
+      "predicted_solar_mw": 1044.9498233322056
+    },
+    {
+      "hour_start": "2026-09-30T14:00:00+05:30",
+      "hour_end": "2026-09-30T15:00:00+05:30",
+      "predicted_demand_mw": 2082.9248652669626,
+      "raw_predicted_demand_mw": 2067.923943546596,
+      "predicted_solar_mw": 764.7658752201795
+    },
+    {
+      "hour_start": "2026-09-30T15:00:00+05:30",
+      "hour_end": "2026-09-30T16:00:00+05:30",
+      "predicted_demand_mw": 2326.3571510184106,
+      "raw_predicted_demand_mw": 2282.640478620318,
+      "predicted_solar_mw": 589.069017443362
+    },
+    {
+      "hour_start": "2026-09-30T16:00:00+05:30",
+      "hour_end": "2026-09-30T17:00:00+05:30",
+      "predicted_demand_mw": 2557.7779766531253,
+      "raw_predicted_demand_mw": 2520.0491324514915,
+      "predicted_solar_mw": 310.80325434699307
+    },
+    {
+      "hour_start": "2026-09-30T17:00:00+05:30",
+      "hour_end": "2026-09-30T18:00:00+05:30",
+      "predicted_demand_mw": 2723.063098764804,
+      "raw_predicted_demand_mw": 2739.317201070704,
+      "predicted_solar_mw": 69.32824169079747
+    },
+    {
+      "hour_start": "2026-09-30T18:00:00+05:30",
+      "hour_end": "2026-09-30T19:00:00+05:30",
+      "predicted_demand_mw": 2950.2705170429585,
+      "raw_predicted_demand_mw": 2905.624284533723,
+      "predicted_solar_mw": 1.012199022924001
+    },
+    {
+      "hour_start": "2026-09-30T19:00:00+05:30",
+      "hour_end": "2026-09-30T20:00:00+05:30",
+      "predicted_demand_mw": 2971.972095517564,
+      "raw_predicted_demand_mw": 2973.8262045928914,
+      "predicted_solar_mw": 1.470472459282894
+    },
+    {
+      "hour_start": "2026-09-30T20:00:00+05:30",
+      "hour_end": "2026-09-30T21:00:00+05:30",
+      "predicted_demand_mw": 2779.818933511394,
+      "raw_predicted_demand_mw": 2800.615326516438,
+      "predicted_solar_mw": 3.1189165148561653
+    },
+    {
+      "hour_start": "2026-09-30T21:00:00+05:30",
+      "hour_end": "2026-09-30T22:00:00+05:30",
+      "predicted_demand_mw": 2590.0002662967267,
+      "raw_predicted_demand_mw": 2564.082790625769,
+      "predicted_solar_mw": 3.1189165148561653
+    },
+    {
+      "hour_start": "2026-09-30T22:00:00+05:30",
+      "hour_end": "2026-09-30T23:00:00+05:30",
+      "predicted_demand_mw": 2368.579075063466,
+      "raw_predicted_demand_mw": 2365.0466022182763,
+      "predicted_solar_mw": 0.298690299611061
+    },
+    {
+      "hour_start": "2026-09-30T23:00:00+05:30",
+      "hour_end": "2026-10-01T00:00:00+05:30",
+      "predicted_demand_mw": 2159.4257907967126,
+      "raw_predicted_demand_mw": 2148.3734365390765,
+      "predicted_solar_mw": 0.26377067399256743
+    },
+    {
+      "hour_start": "2026-10-01T00:00:00+05:30",
+      "hour_end": "2026-10-01T01:00:00+05:30",
+      "predicted_demand_mw": 2045.6398602929064,
+      "raw_predicted_demand_mw": 2036.8427864408036,
+      "predicted_solar_mw": 0.26377067399256743
+    },
+    {
+      "hour_start": "2026-10-01T01:00:00+05:30",
+      "hour_end": "2026-10-01T02:00:00+05:30",
+      "predicted_demand_mw": 1859.3006338013251,
+      "raw_predicted_demand_mw": 1852.5428181653947,
+      "predicted_solar_mw": 0.2776911300322889
+    },
+    {
+      "hour_start": "2026-10-01T02:00:00+05:30",
+      "hour_end": "2026-10-01T03:00:00+05:30",
+      "predicted_demand_mw": 1752.3667383986856,
+      "raw_predicted_demand_mw": 1758.9627473529067,
+      "predicted_solar_mw": 0.604052196548483
+    },
+    {
+      "hour_start": "2026-10-01T03:00:00+05:30",
+      "hour_end": "2026-10-01T04:00:00+05:30",
+      "predicted_demand_mw": 1734.4518091132372,
+      "raw_predicted_demand_mw": 1745.9017768819058,
+      "predicted_solar_mw": 0.628164618780111
+    },
+    {
+      "hour_start": "2026-10-01T04:00:00+05:30",
+      "hour_end": "2026-10-01T05:00:00+05:30",
+      "predicted_demand_mw": 1884.0506016438194,
+      "raw_predicted_demand_mw": 1886.1386944805413,
+      "predicted_solar_mw": 0.604052196548483
+    },
+    {
+      "hour_start": "2026-10-01T05:00:00+05:30",
+      "hour_end": "2026-10-01T06:00:00+05:30",
+      "predicted_demand_mw": 2171.027808721202,
+      "raw_predicted_demand_mw": 2114.2004095368457,
+      "predicted_solar_mw": 0.5626070203374013
+    },
+    {
+      "hour_start": "2026-10-01T06:00:00+05:30",
+      "hour_end": "2026-10-01T07:00:00+05:30",
+      "predicted_demand_mw": 2173.9388749665986,
+      "raw_predicted_demand_mw": 2152.3815162413484,
+      "predicted_solar_mw": 72.20575475978352
+    },
+    {
+      "hour_start": "2026-10-01T07:00:00+05:30",
+      "hour_end": "2026-10-01T08:00:00+05:30",
+      "predicted_demand_mw": 1920.7878898865226,
+      "raw_predicted_demand_mw": 2047.2059187224656,
+      "predicted_solar_mw": 385.4697122066851
+    },
+    {
+      "hour_start": "2026-10-01T08:00:00+05:30",
+      "hour_end": "2026-10-01T09:00:00+05:30",
+      "predicted_demand_mw": 1907.7572632717295,
+      "raw_predicted_demand_mw": 1973.3563338427198,
+      "predicted_solar_mw": 691.9868624029298
+    },
+    {
+      "hour_start": "2026-10-01T09:00:00+05:30",
+      "hour_end": "2026-10-01T10:00:00+05:30",
+      "predicted_demand_mw": 1810.7251694374254,
+      "raw_predicted_demand_mw": 1895.7372527537648,
+      "predicted_solar_mw": 926.5332991723901
+    },
+    {
+      "hour_start": "2026-10-01T10:00:00+05:30",
+      "hour_end": "2026-10-01T11:00:00+05:30",
+      "predicted_demand_mw": 1776.5820194729774,
+      "raw_predicted_demand_mw": 1836.853616854062,
+      "predicted_solar_mw": 1072.246233194235
+    },
+    {
+      "hour_start": "2026-10-01T11:00:00+05:30",
+      "hour_end": "2026-10-01T12:00:00+05:30",
+      "predicted_demand_mw": 1796.5935878252324,
+      "raw_predicted_demand_mw": 1816.9344777881454,
+      "predicted_solar_mw": 1113.6454559806666
+    },
+    {
+      "hour_start": "2026-10-01T12:00:00+05:30",
+      "hour_end": "2026-10-01T13:00:00+05:30",
+      "predicted_demand_mw": 1813.0008241011672,
+      "raw_predicted_demand_mw": 1834.506029071034,
+      "predicted_solar_mw": 1055.783088543773
+    },
+    {
+      "hour_start": "2026-10-01T13:00:00+05:30",
+      "hour_end": "2026-10-01T14:00:00+05:30",
+      "predicted_demand_mw": 1868.0011739369122,
+      "raw_predicted_demand_mw": 1919.489715262344,
+      "predicted_solar_mw": 889.8612888796187
+    },
+    {
+      "hour_start": "2026-10-01T14:00:00+05:30",
+      "hour_end": "2026-10-01T15:00:00+05:30",
+      "predicted_demand_mw": 2098.474031419149,
+      "raw_predicted_demand_mw": 2083.2715031343578,
+      "predicted_solar_mw": 723.7287068607869
+    },
+    {
+      "hour_start": "2026-10-01T15:00:00+05:30",
+      "hour_end": "2026-10-01T16:00:00+05:30",
+      "predicted_demand_mw": 2327.1700196999136,
+      "raw_predicted_demand_mw": 2283.442807851628,
+      "predicted_solar_mw": 436.8603607397265
+    },
+    {
+      "hour_start": "2026-10-01T16:00:00+05:30",
+      "hour_end": "2026-10-01T17:00:00+05:30",
+      "predicted_demand_mw": 2529.756559138715,
+      "raw_predicted_demand_mw": 2492.391033565239,
+      "predicted_solar_mw": 227.84139192669613
+    },
+    {
+      "hour_start": "2026-10-01T17:00:00+05:30",
+      "hour_end": "2026-10-01T18:00:00+05:30",
+      "predicted_demand_mw": 2673.5427748653537,
+      "raw_predicted_demand_mw": 2690.438945194251,
+      "predicted_solar_mw": 47.460335230678425
+    },
+    {
+      "hour_start": "2026-10-01T18:00:00+05:30",
+      "hour_end": "2026-10-01T19:00:00+05:30",
+      "predicted_demand_mw": 2895.1564255996577,
+      "raw_predicted_demand_mw": 2851.2247884917797,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-01T19:00:00+05:30",
+      "hour_end": "2026-10-01T20:00:00+05:30",
+      "predicted_demand_mw": 2899.7633408151846,
+      "raw_predicted_demand_mw": 2902.5536903817692,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-01T20:00:00+05:30",
+      "hour_end": "2026-10-01T21:00:00+05:30",
+      "predicted_demand_mw": 2707.9905724455302,
+      "raw_predicted_demand_mw": 2729.718273853935,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-01T21:00:00+05:30",
+      "hour_end": "2026-10-01T22:00:00+05:30",
+      "predicted_demand_mw": 2503.9397258909826,
+      "raw_predicted_demand_mw": 2479.13808946915,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-01T22:00:00+05:30",
+      "hour_end": "2026-10-01T23:00:00+05:30",
+      "predicted_demand_mw": 2251.826013710746,
+      "raw_predicted_demand_mw": 2249.80733159588,
+      "predicted_solar_mw": 0.0
+    },
+    {
+      "hour_start": "2026-10-01T23:00:00+05:30",
+      "hour_end": "2026-10-02T00:00:00+05:30",
+      "predicted_demand_mw": 2049.329929574696,
+      "raw_predicted_demand_mw": 2039.7050504704644,
+      "predicted_solar_mw": 0.17097317083132058
+    },
+    {
+      "hour_start": "2026-10-02T00:00:00+05:30",
+      "hour_end": "2026-10-02T01:00:00+05:30",
+      "predicted_demand_mw": 1911.3475747590344,
+      "raw_predicted_demand_mw": 1904.2917007918836,
+      "predicted_solar_mw": 0.0
+    },
+    {
+      "hour_start": "2026-10-02T01:00:00+05:30",
+      "hour_end": "2026-10-02T02:00:00+05:30",
+      "predicted_demand_mw": 1766.3067469403761,
+      "raw_predicted_demand_mw": 1760.8011930424916,
+      "predicted_solar_mw": 0.0
+    },
+    {
+      "hour_start": "2026-10-02T02:00:00+05:30",
+      "hour_end": "2026-10-02T03:00:00+05:30",
+      "predicted_demand_mw": 1647.0800646991534,
+      "raw_predicted_demand_mw": 1658.1414215636007,
+      "predicted_solar_mw": 0.0
+    },
+    {
+      "hour_start": "2026-10-02T03:00:00+05:30",
+      "hour_end": "2026-10-02T04:00:00+05:30",
+      "predicted_demand_mw": 1630.6550001070025,
+      "raw_predicted_demand_mw": 1646.5509985762583,
+      "predicted_solar_mw": 0.0
+    },
+    {
+      "hour_start": "2026-10-02T04:00:00+05:30",
+      "hour_end": "2026-10-02T05:00:00+05:30",
+      "predicted_demand_mw": 1763.725438229044,
+      "raw_predicted_demand_mw": 1767.4201632384345,
+      "predicted_solar_mw": 0.0
+    },
+    {
+      "hour_start": "2026-10-02T05:00:00+05:30",
+      "hour_end": "2026-10-02T06:00:00+05:30",
+      "predicted_demand_mw": 2044.007483292671,
+      "raw_predicted_demand_mw": 1988.8269975936541,
+      "predicted_solar_mw": 0.0
+    },
+    {
+      "hour_start": "2026-10-02T06:00:00+05:30",
+      "hour_end": "2026-10-02T07:00:00+05:30",
+      "predicted_demand_mw": 2108.2251572920186,
+      "raw_predicted_demand_mw": 2079.5809608439868,
+      "predicted_solar_mw": 62.12692055449197
+    },
+    {
+      "hour_start": "2026-10-02T07:00:00+05:30",
+      "hour_end": "2026-10-02T08:00:00+05:30",
+      "predicted_demand_mw": 1914.1360474126707,
+      "raw_predicted_demand_mw": 2040.6403223595066,
+      "predicted_solar_mw": 399.0281838585634
+    },
+    {
+      "hour_start": "2026-10-02T08:00:00+05:30",
+      "hour_end": "2026-10-02T09:00:00+05:30",
+      "predicted_demand_mw": 1940.084741735365,
+      "raw_predicted_demand_mw": 2005.2646623785847,
+      "predicted_solar_mw": 711.0067860006072
+    },
+    {
+      "hour_start": "2026-10-02T09:00:00+05:30",
+      "hour_end": "2026-10-02T10:00:00+05:30",
+      "predicted_demand_mw": 1885.0482451513412,
+      "raw_predicted_demand_mw": 1969.0501477553014,
+      "predicted_solar_mw": 964.0147429598403
+    },
+    {
+      "hour_start": "2026-10-02T10:00:00+05:30",
+      "hour_end": "2026-10-02T11:00:00+05:30",
+      "predicted_demand_mw": 1854.6836138311703,
+      "raw_predicted_demand_mw": 1913.8960391806606,
+      "predicted_solar_mw": 1110.5470293361118
+    },
+    {
+      "hour_start": "2026-10-02T11:00:00+05:30",
+      "hour_end": "2026-10-02T12:00:00+05:30",
+      "predicted_demand_mw": 1842.7232625171803,
+      "raw_predicted_demand_mw": 1862.4660467590745,
+      "predicted_solar_mw": 1122.8698797858906
+    },
+    {
+      "hour_start": "2026-10-02T12:00:00+05:30",
+      "hour_end": "2026-10-02T13:00:00+05:30",
+      "predicted_demand_mw": 1830.3734625332124,
+      "raw_predicted_demand_mw": 1851.653418257235,
+      "predicted_solar_mw": 1075.4958253812854
+    },
+    {
+      "hour_start": "2026-10-02T13:00:00+05:30",
+      "hour_end": "2026-10-02T14:00:00+05:30",
+      "predicted_demand_mw": 1866.3942506712247,
+      "raw_predicted_demand_mw": 1917.9036269582048,
+      "predicted_solar_mw": 826.6161323841264
+    },
+    {
+      "hour_start": "2026-10-02T14:00:00+05:30",
+      "hour_end": "2026-10-02T15:00:00+05:30",
+      "predicted_demand_mw": 2057.361490877736,
+      "raw_predicted_demand_mw": 2042.6920174186641,
+      "predicted_solar_mw": 570.2250150334712
+    },
+    {
+      "hour_start": "2026-10-02T15:00:00+05:30",
+      "hour_end": "2026-10-02T16:00:00+05:30",
+      "predicted_demand_mw": 2269.221603185056,
+      "raw_predicted_demand_mw": 2226.245735881751,
+      "predicted_solar_mw": 439.10726712751
+    },
+    {
+      "hour_start": "2026-10-02T16:00:00+05:30",
+      "hour_end": "2026-10-02T17:00:00+05:30",
+      "predicted_demand_mw": 2463.67222920191,
+      "raw_predicted_demand_mw": 2427.1635363737078,
+      "predicted_solar_mw": 182.46788148650182
+    },
+    {
+      "hour_start": "2026-10-02T17:00:00+05:30",
+      "hour_end": "2026-10-02T18:00:00+05:30",
+      "predicted_demand_mw": 2586.7437499906846,
+      "raw_predicted_demand_mw": 2604.765334571971,
+      "predicted_solar_mw": 23.23392378397119
+    },
+    {
+      "hour_start": "2026-10-02T18:00:00+05:30",
+      "hour_end": "2026-10-02T19:00:00+05:30",
+      "predicted_demand_mw": 2786.2141424299703,
+      "raw_predicted_demand_mw": 2747.029228012184,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-02T19:00:00+05:30",
+      "hour_end": "2026-10-02T20:00:00+05:30",
+      "predicted_demand_mw": 2761.365158658042,
+      "raw_predicted_demand_mw": 2769.2841486676575,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-02T20:00:00+05:30",
+      "hour_end": "2026-10-02T21:00:00+05:30",
+      "predicted_demand_mw": 2555.5705926534465,
+      "raw_predicted_demand_mw": 2579.274533055948,
+      "predicted_solar_mw": 0.5309715283342722
+    },
+    {
+      "hour_start": "2026-10-02T21:00:00+05:30",
+      "hour_end": "2026-10-02T22:00:00+05:30",
+      "predicted_demand_mw": 2365.8692955028464,
+      "raw_predicted_demand_mw": 2342.8578454387143,
+      "predicted_solar_mw": 0.5626070203374013
+    },
+    {
+      "hour_start": "2026-10-02T22:00:00+05:30",
+      "hour_end": "2026-10-02T23:00:00+05:30",
+      "predicted_demand_mw": 2161.824417767808,
+      "raw_predicted_demand_mw": 2153.0338084306295,
+      "predicted_solar_mw": 0.23624595382120722
+    },
+    {
+      "hour_start": "2026-10-02T23:00:00+05:30",
+      "hour_end": "2026-10-03T00:00:00+05:30",
+      "predicted_demand_mw": 1980.9688446689895,
+      "raw_predicted_demand_mw": 1972.2303181404093,
+      "predicted_solar_mw": 0.17097317083132058
+    },
+    {
+      "hour_start": "2026-10-03T00:00:00+05:30",
+      "hour_end": "2026-10-03T01:00:00+05:30",
+      "predicted_demand_mw": 1754.2288898058534,
+      "raw_predicted_demand_mw": 1749.256703526623,
+      "predicted_solar_mw": 0.17097317083132058
+    },
+    {
+      "hour_start": "2026-10-03T01:00:00+05:30",
+      "hour_end": "2026-10-03T02:00:00+05:30",
+      "predicted_demand_mw": 1665.4977608885279,
+      "raw_predicted_demand_mw": 1661.2992708641773,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-03T02:00:00+05:30",
+      "hour_end": "2026-10-03T03:00:00+05:30",
+      "predicted_demand_mw": 1596.55767207331,
+      "raw_predicted_demand_mw": 1608.2740895309844,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-03T03:00:00+05:30",
+      "hour_end": "2026-10-03T04:00:00+05:30",
+      "predicted_demand_mw": 1568.8088882320715,
+      "raw_predicted_demand_mw": 1585.5067677807451,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-03T04:00:00+05:30",
+      "hour_end": "2026-10-03T05:00:00+05:30",
+      "predicted_demand_mw": 1596.7316402410638,
+      "raw_predicted_demand_mw": 1605.6917921621261,
+      "predicted_solar_mw": 0.5071809528113813
+    },
+    {
+      "hour_start": "2026-10-03T05:00:00+05:30",
+      "hour_end": "2026-10-03T06:00:00+05:30",
+      "predicted_demand_mw": 1777.2907631163926,
+      "raw_predicted_demand_mw": 1725.614985572427,
+      "predicted_solar_mw": 0.7223586859235606
+    },
+    {
+      "hour_start": "2026-10-03T06:00:00+05:30",
+      "hour_end": "2026-10-03T07:00:00+05:30",
+      "predicted_demand_mw": 1847.0682520667474,
+      "raw_predicted_demand_mw": 1821.8566766161573,
+      "predicted_solar_mw": 80.14086533188694
+    },
+    {
+      "hour_start": "2026-10-03T07:00:00+05:30",
+      "hour_end": "2026-10-03T08:00:00+05:30",
+      "predicted_demand_mw": 1641.5786766048084,
+      "raw_predicted_demand_mw": 1774.7636155774871,
+      "predicted_solar_mw": 409.45571660504356
+    },
+    {
+      "hour_start": "2026-10-03T08:00:00+05:30",
+      "hour_end": "2026-10-03T09:00:00+05:30",
+      "predicted_demand_mw": 1582.613057596481,
+      "raw_predicted_demand_mw": 1655.5746198236734,
+      "predicted_solar_mw": 747.7730364585751
+    },
+    {
+      "hour_start": "2026-10-03T09:00:00+05:30",
+      "hour_end": "2026-10-03T10:00:00+05:30",
+      "predicted_demand_mw": 1397.986357950348,
+      "raw_predicted_demand_mw": 1502.7843980732964,
+      "predicted_solar_mw": 974.9040852875294
+    },
+    {
+      "hour_start": "2026-10-03T10:00:00+05:30",
+      "hour_end": "2026-10-03T11:00:00+05:30",
+      "predicted_demand_mw": 1274.6744790257758,
+      "raw_predicted_demand_mw": 1355.8881724510247,
+      "predicted_solar_mw": 1131.3773564115554
+    },
+    {
+      "hour_start": "2026-10-03T11:00:00+05:30",
+      "hour_end": "2026-10-03T12:00:00+05:30",
+      "predicted_demand_mw": 1221.843531708688,
+      "raw_predicted_demand_mw": 1264.0709753917881,
+      "predicted_solar_mw": 1141.6931289044505
+    },
+    {
+      "hour_start": "2026-10-03T12:00:00+05:30",
+      "hour_end": "2026-10-03T13:00:00+05:30",
+      "predicted_demand_mw": 1208.8549868909179,
+      "raw_predicted_demand_mw": 1252.6278838604712,
+      "predicted_solar_mw": 1070.741811767485
+    },
+    {
+      "hour_start": "2026-10-03T13:00:00+05:30",
+      "hour_end": "2026-10-03T14:00:00+05:30",
+      "predicted_demand_mw": 1232.6731730594533,
+      "raw_predicted_demand_mw": 1306.8802329181622,
+      "predicted_solar_mw": 906.5023146090502
+    },
+    {
+      "hour_start": "2026-10-03T14:00:00+05:30",
+      "hour_end": "2026-10-03T15:00:00+05:30",
+      "predicted_demand_mw": 1421.9999111974466,
+      "raw_predicted_demand_mw": 1430.0493916459359,
+      "predicted_solar_mw": 613.9765557324738
+    },
+    {
+      "hour_start": "2026-10-03T15:00:00+05:30",
+      "hour_end": "2026-10-03T16:00:00+05:30",
+      "predicted_demand_mw": 1652.184028278684,
+      "raw_predicted_demand_mw": 1612.4164031933997,
+      "predicted_solar_mw": 432.1341966505387
+    },
+    {
+      "hour_start": "2026-10-03T16:00:00+05:30",
+      "hour_end": "2026-10-03T17:00:00+05:30",
+      "predicted_demand_mw": 1900.5830541708838,
+      "raw_predicted_demand_mw": 1863.4363682849842,
+      "predicted_solar_mw": 224.7694863822845
+    },
+    {
+      "hour_start": "2026-10-03T17:00:00+05:30",
+      "hour_end": "2026-10-03T18:00:00+05:30",
+      "predicted_demand_mw": 2115.358596980976,
+      "raw_predicted_demand_mw": 2131.5531772969716,
+      "predicted_solar_mw": 32.67229787859736
+    },
+    {
+      "hour_start": "2026-10-03T18:00:00+05:30",
+      "hour_end": "2026-10-03T19:00:00+05:30",
+      "predicted_demand_mw": 2386.4639146900404,
+      "raw_predicted_demand_mw": 2352.462060846309,
+      "predicted_solar_mw": 3.4754485502179255
+    },
+    {
+      "hour_start": "2026-10-03T19:00:00+05:30",
+      "hour_end": "2026-10-03T20:00:00+05:30",
+      "predicted_demand_mw": 2468.398389642005,
+      "raw_predicted_demand_mw": 2480.115912847162,
+      "predicted_solar_mw": 0.5309715283342722
+    },
+    {
+      "hour_start": "2026-10-03T20:00:00+05:30",
+      "hour_end": "2026-10-03T21:00:00+05:30",
+      "predicted_demand_mw": 2290.5655593464176,
+      "raw_predicted_demand_mw": 2317.7054881355307,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-03T21:00:00+05:30",
+      "hour_end": "2026-10-03T22:00:00+05:30",
+      "predicted_demand_mw": 2130.3690648410156,
+      "raw_predicted_demand_mw": 2102.472186135082,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-03T22:00:00+05:30",
+      "hour_end": "2026-10-03T23:00:00+05:30",
+      "predicted_demand_mw": 1895.9295150366065,
+      "raw_predicted_demand_mw": 1890.5864319084315,
+      "predicted_solar_mw": 0.20900604910266996
+    },
+    {
+      "hour_start": "2026-10-03T23:00:00+05:30",
+      "hour_end": "2026-10-04T00:00:00+05:30",
+      "predicted_demand_mw": 1705.08193410492,
+      "raw_predicted_demand_mw": 1699.967014105819,
+      "predicted_solar_mw": 0.17097317083132058
+    },
+    {
+      "hour_start": "2026-10-04T00:00:00+05:30",
+      "hour_end": "2026-10-04T01:00:00+05:30",
+      "predicted_demand_mw": 1527.2732553982414,
+      "raw_predicted_demand_mw": 1528.3439460700527,
+      "predicted_solar_mw": 0.17097317083132058
+    },
+    {
+      "hour_start": "2026-10-04T01:00:00+05:30",
+      "hour_end": "2026-10-04T02:00:00+05:30",
+      "predicted_demand_mw": 1409.1214170568264,
+      "raw_predicted_demand_mw": 1422.681527542258,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-04T02:00:00+05:30",
+      "hour_end": "2026-10-04T03:00:00+05:30",
+      "predicted_demand_mw": 1365.815966710816,
+      "raw_predicted_demand_mw": 1391.8583849562826,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-04T03:00:00+05:30",
+      "hour_end": "2026-10-04T04:00:00+05:30",
+      "predicted_demand_mw": 1336.7993494439743,
+      "raw_predicted_demand_mw": 1367.8396681886927,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-04T04:00:00+05:30",
+      "hour_end": "2026-10-04T05:00:00+05:30",
+      "predicted_demand_mw": 1336.7771239962055,
+      "raw_predicted_demand_mw": 1360.442042638973,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-04T05:00:00+05:30",
+      "hour_end": "2026-10-04T06:00:00+05:30",
+      "predicted_demand_mw": 1464.5188510803143,
+      "raw_predicted_demand_mw": 1431.332884751786,
+      "predicted_solar_mw": 0.9134013692324038
+    },
+    {
+      "hour_start": "2026-10-04T06:00:00+05:30",
+      "hour_end": "2026-10-04T07:00:00+05:30",
+      "predicted_demand_mw": 1529.1182982757452,
+      "raw_predicted_demand_mw": 1511.1294091584843,
+      "predicted_solar_mw": 82.70913581495537
+    },
+    {
+      "hour_start": "2026-10-04T07:00:00+05:30",
+      "hour_end": "2026-10-04T08:00:00+05:30",
+      "predicted_demand_mw": 1297.3259152686117,
+      "raw_predicted_demand_mw": 1446.3086107357972,
+      "predicted_solar_mw": 405.77266132561124
+    },
+    {
+      "hour_start": "2026-10-04T08:00:00+05:30",
+      "hour_end": "2026-10-04T09:00:00+05:30",
+      "predicted_demand_mw": 1206.8030121183397,
+      "raw_predicted_demand_mw": 1295.9714946225965,
+      "predicted_solar_mw": 748.7600273003244
+    },
+    {
+      "hour_start": "2026-10-04T09:00:00+05:30",
+      "hour_end": "2026-10-04T10:00:00+05:30",
+      "predicted_demand_mw": 1011.8996191947566,
+      "raw_predicted_demand_mw": 1121.7035625416343,
+      "predicted_solar_mw": 938.1785493844413
+    },
+    {
+      "hour_start": "2026-10-04T10:00:00+05:30",
+      "hour_end": "2026-10-04T11:00:00+05:30",
+      "predicted_demand_mw": 939.6948650729584,
+      "raw_predicted_demand_mw": 1025.2518196390631,
+      "predicted_solar_mw": 1140.3372826267894
+    },
+    {
+      "hour_start": "2026-10-04T11:00:00+05:30",
+      "hour_end": "2026-10-04T12:00:00+05:30",
+      "predicted_demand_mw": 955.004964940618,
+      "raw_predicted_demand_mw": 1000.6921701424853,
+      "predicted_solar_mw": 1159.0277970467762
+    },
+    {
+      "hour_start": "2026-10-04T12:00:00+05:30",
+      "hour_end": "2026-10-04T13:00:00+05:30",
+      "predicted_demand_mw": 988.5925869852687,
+      "raw_predicted_demand_mw": 1035.2213506477626,
+      "predicted_solar_mw": 1085.3389229124537
+    },
+    {
+      "hour_start": "2026-10-04T13:00:00+05:30",
+      "hour_end": "2026-10-04T14:00:00+05:30",
+      "predicted_demand_mw": 1036.0709645429101,
+      "raw_predicted_demand_mw": 1112.827119023767,
+      "predicted_solar_mw": 914.7768805788207
+    },
+    {
+      "hour_start": "2026-10-04T14:00:00+05:30",
+      "hour_end": "2026-10-04T15:00:00+05:30",
+      "predicted_demand_mw": 1212.2061858862542,
+      "raw_predicted_demand_mw": 1222.9757988347105,
+      "predicted_solar_mw": 635.316322326382
+    },
+    {
+      "hour_start": "2026-10-04T15:00:00+05:30",
+      "hour_end": "2026-10-04T16:00:00+05:30",
+      "predicted_demand_mw": 1375.2048721038407,
+      "raw_predicted_demand_mw": 1350.3627509253465,
+      "predicted_solar_mw": 437.50741685778996
+    },
+    {
+      "hour_start": "2026-10-04T16:00:00+05:30",
+      "hour_end": "2026-10-04T17:00:00+05:30",
+      "predicted_demand_mw": 1600.1844326348553,
+      "raw_predicted_demand_mw": 1570.0793934058715,
+      "predicted_solar_mw": 237.163746594526
+    },
+    {
+      "hour_start": "2026-10-04T17:00:00+05:30",
+      "hour_end": "2026-10-04T18:00:00+05:30",
+      "predicted_demand_mw": 1832.6087148840716,
+      "raw_predicted_demand_mw": 1852.5158852865386,
+      "predicted_solar_mw": 31.641363776880443
+    },
+    {
+      "hour_start": "2026-10-04T18:00:00+05:30",
+      "hour_end": "2026-10-04T19:00:00+05:30",
+      "predicted_demand_mw": 2141.098618006338,
+      "raw_predicted_demand_mw": 2102.3392434773496,
+      "predicted_solar_mw": 0.746149261446451
+    },
+    {
+      "hour_start": "2026-10-04T19:00:00+05:30",
+      "hour_end": "2026-10-04T20:00:00+05:30",
+      "predicted_demand_mw": 2222.284828186322,
+      "raw_predicted_demand_mw": 2237.1933977214167,
+      "predicted_solar_mw": 0.5626070203374013
+    },
+    {
+      "hour_start": "2026-10-04T20:00:00+05:30",
+      "hour_end": "2026-10-04T21:00:00+05:30",
+      "predicted_demand_mw": 2077.584806401661,
+      "raw_predicted_demand_mw": 2099.547324683788,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-04T21:00:00+05:30",
+      "hour_end": "2026-10-04T22:00:00+05:30",
+      "predicted_demand_mw": 1914.8571933591622,
+      "raw_predicted_demand_mw": 1889.7545871934437,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-04T22:00:00+05:30",
+      "hour_end": "2026-10-04T23:00:00+05:30",
+      "predicted_demand_mw": 1698.7571743503743,
+      "raw_predicted_demand_mw": 1696.0171045026286,
+      "predicted_solar_mw": 0.20900604910266996
+    },
+    {
+      "hour_start": "2026-10-04T23:00:00+05:30",
+      "hour_end": "2026-10-05T00:00:00+05:30",
+      "predicted_demand_mw": 1512.2946939747396,
+      "raw_predicted_demand_mw": 1512.7796321490318,
+      "predicted_solar_mw": 0.17097317083132058
+    },
+    {
+      "hour_start": "2026-10-05T00:00:00+05:30",
+      "hour_end": "2026-10-05T01:00:00+05:30",
+      "predicted_demand_mw": 1354.780306826013,
+      "raw_predicted_demand_mw": 1369.4217596044173,
+      "predicted_solar_mw": 0.17097317083132058
+    },
+    {
+      "hour_start": "2026-10-05T01:00:00+05:30",
+      "hour_end": "2026-10-05T02:00:00+05:30",
+      "predicted_demand_mw": 1312.9774549633103,
+      "raw_predicted_demand_mw": 1327.7841437988723,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-05T02:00:00+05:30",
+      "hour_end": "2026-10-05T03:00:00+05:30",
+      "predicted_demand_mw": 1302.1447627993034,
+      "raw_predicted_demand_mw": 1329.0127258069635,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-05T03:00:00+05:30",
+      "hour_end": "2026-10-05T04:00:00+05:30",
+      "predicted_demand_mw": 1308.8113238373883,
+      "raw_predicted_demand_mw": 1340.214528259214,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-05T04:00:00+05:30",
+      "hour_end": "2026-10-05T05:00:00+05:30",
+      "predicted_demand_mw": 1428.1383182773093,
+      "raw_predicted_demand_mw": 1450.6186707304482,
+      "predicted_solar_mw": 0.0
+    },
+    {
+      "hour_start": "2026-10-05T05:00:00+05:30",
+      "hour_end": "2026-10-05T06:00:00+05:30",
+      "predicted_demand_mw": 1696.298130004609,
+      "raw_predicted_demand_mw": 1645.672482502705,
+      "predicted_solar_mw": 0.16705682739716143
+    },
+    {
+      "hour_start": "2026-10-05T06:00:00+05:30",
+      "hour_end": "2026-10-05T07:00:00+05:30",
+      "predicted_demand_mw": 1788.464955449195,
+      "raw_predicted_demand_mw": 1764.013215553735,
+      "predicted_solar_mw": 79.8625776229578
+    },
+    {
+      "hour_start": "2026-10-05T07:00:00+05:30",
+      "hour_end": "2026-10-05T08:00:00+05:30",
+      "predicted_demand_mw": 1669.071300631737,
+      "raw_predicted_demand_mw": 1798.7995497105558,
+      "predicted_solar_mw": 402.4506940801634
+    },
+    {
+      "hour_start": "2026-10-05T08:00:00+05:30",
+      "hour_end": "2026-10-05T09:00:00+05:30",
+      "predicted_demand_mw": 1733.6768597074104,
+      "raw_predicted_demand_mw": 1801.5795393294645,
+      "predicted_solar_mw": 751.0312120694149
+    },
+    {
+      "hour_start": "2026-10-05T09:00:00+05:30",
+      "hour_end": "2026-10-05T10:00:00+05:30",
+      "predicted_demand_mw": 1688.6641653040926,
+      "raw_predicted_demand_mw": 1775.2588607973653,
+      "predicted_solar_mw": 959.750563156944
+    },
+    {
+      "hour_start": "2026-10-05T10:00:00+05:30",
+      "hour_end": "2026-10-05T11:00:00+05:30",
+      "predicted_demand_mw": 1667.479069122037,
+      "raw_predicted_demand_mw": 1729.165267824737,
+      "predicted_solar_mw": 1127.9863620868382
+    },
+    {
+      "hour_start": "2026-10-05T11:00:00+05:30",
+      "hour_end": "2026-10-05T12:00:00+05:30",
+      "predicted_demand_mw": 1666.941406915496,
+      "raw_predicted_demand_mw": 1688.9633343377564,
+      "predicted_solar_mw": 1146.7680317316078
+    },
+    {
+      "hour_start": "2026-10-05T12:00:00+05:30",
+      "hour_end": "2026-10-05T13:00:00+05:30",
+      "predicted_demand_mw": 1642.855104127291,
+      "raw_predicted_demand_mw": 1669.6666030338965,
+      "predicted_solar_mw": 1040.0176063750405
+    },
+    {
+      "hour_start": "2026-10-05T13:00:00+05:30",
+      "hour_end": "2026-10-05T14:00:00+05:30",
+      "predicted_demand_mw": 1609.8293609709115,
+      "raw_predicted_demand_mw": 1667.8120468094708,
+      "predicted_solar_mw": 887.4992165782537
+    },
+    {
+      "hour_start": "2026-10-05T14:00:00+05:30",
+      "hour_end": "2026-10-05T15:00:00+05:30",
+      "predicted_demand_mw": 1724.4119838311733,
+      "raw_predicted_demand_mw": 1714.1059761275628,
+      "predicted_solar_mw": 734.2939843657836
+    },
+    {
+      "hour_start": "2026-10-05T15:00:00+05:30",
+      "hour_end": "2026-10-05T16:00:00+05:30",
+      "predicted_demand_mw": 1889.4187412491135,
+      "raw_predicted_demand_mw": 1843.4284368056701,
+      "predicted_solar_mw": 570.4126256673019
+    },
+    {
+      "hour_start": "2026-10-05T16:00:00+05:30",
+      "hour_end": "2026-10-05T17:00:00+05:30",
+      "predicted_demand_mw": 2073.6119463271652,
+      "raw_predicted_demand_mw": 2034.2218114902091,
+      "predicted_solar_mw": 285.3400684077033
+    },
+    {
+      "hour_start": "2026-10-05T17:00:00+05:30",
+      "hour_end": "2026-10-05T18:00:00+05:30",
+      "predicted_demand_mw": 2207.333430402297,
+      "raw_predicted_demand_mw": 2230.2743534414158,
+      "predicted_solar_mw": 40.382566697576884
+    },
+    {
+      "hour_start": "2026-10-05T18:00:00+05:30",
+      "hour_end": "2026-10-05T19:00:00+05:30",
+      "predicted_demand_mw": 2434.4264064121708,
+      "raw_predicted_demand_mw": 2399.8026830043273,
+      "predicted_solar_mw": 0.7505448487310428
+    },
+    {
+      "hour_start": "2026-10-05T19:00:00+05:30",
+      "hour_end": "2026-10-05T20:00:00+05:30",
+      "predicted_demand_mw": 2390.3464248604632,
+      "raw_predicted_demand_mw": 2403.0759501442026,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-05T20:00:00+05:30",
+      "hour_end": "2026-10-05T21:00:00+05:30",
+      "predicted_demand_mw": 2186.8301089848196,
+      "raw_predicted_demand_mw": 2215.3150454452,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-05T21:00:00+05:30",
+      "hour_end": "2026-10-05T22:00:00+05:30",
+      "predicted_demand_mw": 2014.2614142439952,
+      "raw_predicted_demand_mw": 1987.8699580353993,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-05T22:00:00+05:30",
+      "hour_end": "2026-10-05T23:00:00+05:30",
+      "predicted_demand_mw": 1807.7420693555573,
+      "raw_predicted_demand_mw": 1803.5889288620172,
+      "predicted_solar_mw": 0.535367115618864
+    },
+    {
+      "hour_start": "2026-10-05T23:00:00+05:30",
+      "hour_end": "2026-10-06T00:00:00+05:30",
+      "predicted_demand_mw": 1628.077583348839,
+      "raw_predicted_demand_mw": 1627.0613097978548,
+      "predicted_solar_mw": 0.17097317083132058
+    }
+  ],
+  "days": [
+    {
+      "date": "2026-09-29",
+      "hours": [
+        {
+          "hour_start": "2026-09-29T22:00:00+05:30",
+          "hour_end": "2026-09-29T23:00:00+05:30",
+          "predicted_demand_mw": 2202.2714257267753,
+          "raw_predicted_demand_mw": 2200.8952558943797,
+          "predicted_solar_mw": 3.3540123442904277
+        },
+        {
+          "hour_start": "2026-09-29T23:00:00+05:30",
+          "hour_end": "2026-09-30T00:00:00+05:30",
+          "predicted_demand_mw": 1997.235438452705,
+          "raw_predicted_demand_mw": 1988.2860033740753,
+          "predicted_solar_mw": 3.3540123442904277
+        }
+      ],
+      "hour_count": 2,
+      "partial_day": true
+    },
+    {
+      "date": "2026-09-30",
+      "hours": [
+        {
+          "hour_start": "2026-09-30T00:00:00+05:30",
+          "hour_end": "2026-09-30T01:00:00+05:30",
+          "predicted_demand_mw": 1814.3703323267098,
+          "raw_predicted_demand_mw": 1808.6183672807251,
+          "predicted_solar_mw": 3.3540123442904277
+        },
+        {
+          "hour_start": "2026-09-30T01:00:00+05:30",
+          "hour_end": "2026-09-30T02:00:00+05:30",
+          "predicted_demand_mw": 1716.0291244746818,
+          "raw_predicted_demand_mw": 1711.1754575418968,
+          "predicted_solar_mw": 0.44756820067812325
+        },
+        {
+          "hour_start": "2026-09-30T02:00:00+05:30",
+          "hour_end": "2026-09-30T03:00:00+05:30",
+          "predicted_demand_mw": 1661.648961326546,
+          "raw_predicted_demand_mw": 1669.4211940852333,
+          "predicted_solar_mw": 0.604052196548483
+        },
+        {
+          "hour_start": "2026-09-30T03:00:00+05:30",
+          "hour_end": "2026-09-30T04:00:00+05:30",
+          "predicted_demand_mw": 1644.8007093572194,
+          "raw_predicted_demand_mw": 1660.5132981300721,
+          "predicted_solar_mw": 0.604052196548483
+        },
+        {
+          "hour_start": "2026-09-30T04:00:00+05:30",
+          "hour_end": "2026-09-30T05:00:00+05:30",
+          "predicted_demand_mw": 1760.8779059103636,
+          "raw_predicted_demand_mw": 1764.60955130521,
+          "predicted_solar_mw": 0.604052196548483
+        },
+        {
+          "hour_start": "2026-09-30T05:00:00+05:30",
+          "hour_end": "2026-09-30T06:00:00+05:30",
+          "predicted_demand_mw": 2022.5169248845866,
+          "raw_predicted_demand_mw": 1967.6150803426472,
+          "predicted_solar_mw": 0.604052196548483
+        },
+        {
+          "hour_start": "2026-09-30T06:00:00+05:30",
+          "hour_end": "2026-09-30T07:00:00+05:30",
+          "predicted_demand_mw": 2066.647248184478,
+          "raw_predicted_demand_mw": 2038.5421404135566,
+          "predicted_solar_mw": 73.67822272259966
+        },
+        {
+          "hour_start": "2026-09-30T07:00:00+05:30",
+          "hour_end": "2026-09-30T08:00:00+05:30",
+          "predicted_demand_mw": 1853.8528138802342,
+          "raw_predicted_demand_mw": 1981.1387060202985,
+          "predicted_solar_mw": 369.4071277199714
+        },
+        {
+          "hour_start": "2026-09-30T08:00:00+05:30",
+          "hour_end": "2026-09-30T09:00:00+05:30",
+          "predicted_demand_mw": 1808.1976302365792,
+          "raw_predicted_demand_mw": 1875.1340923536138,
+          "predicted_solar_mw": 678.0995172414964
+        },
+        {
+          "hour_start": "2026-09-30T09:00:00+05:30",
+          "hour_end": "2026-09-30T10:00:00+05:30",
+          "predicted_demand_mw": 1749.8129719098588,
+          "raw_predicted_demand_mw": 1835.6148274078655,
+          "predicted_solar_mw": 930.5036903454761
+        },
+        {
+          "hour_start": "2026-09-30T10:00:00+05:30",
+          "hour_end": "2026-09-30T11:00:00+05:30",
+          "predicted_demand_mw": 1756.3145019872775,
+          "raw_predicted_demand_mw": 1816.8488828854797,
+          "predicted_solar_mw": 1114.2097110821553
+        },
+        {
+          "hour_start": "2026-09-30T11:00:00+05:30",
+          "hour_end": "2026-09-30T12:00:00+05:30",
+          "predicted_demand_mw": 1766.4266156364688,
+          "raw_predicted_demand_mw": 1787.1586429480062,
+          "predicted_solar_mw": 1191.893648771494
+        },
+        {
+          "hour_start": "2026-09-30T12:00:00+05:30",
+          "hour_end": "2026-09-30T13:00:00+05:30",
+          "predicted_demand_mw": 1788.511099225814,
+          "raw_predicted_demand_mw": 1810.333831788319,
+          "predicted_solar_mw": 1176.3467446670356
+        },
+        {
+          "hour_start": "2026-09-30T13:00:00+05:30",
+          "hour_end": "2026-09-30T14:00:00+05:30",
+          "predicted_demand_mw": 1866.4231570988927,
+          "raw_predicted_demand_mw": 1917.9321585924265,
+          "predicted_solar_mw": 1044.9498233322056
+        },
+        {
+          "hour_start": "2026-09-30T14:00:00+05:30",
+          "hour_end": "2026-09-30T15:00:00+05:30",
+          "predicted_demand_mw": 2082.9248652669626,
+          "raw_predicted_demand_mw": 2067.923943546596,
+          "predicted_solar_mw": 764.7658752201795
+        },
+        {
+          "hour_start": "2026-09-30T15:00:00+05:30",
+          "hour_end": "2026-09-30T16:00:00+05:30",
+          "predicted_demand_mw": 2326.3571510184106,
+          "raw_predicted_demand_mw": 2282.640478620318,
+          "predicted_solar_mw": 589.069017443362
+        },
+        {
+          "hour_start": "2026-09-30T16:00:00+05:30",
+          "hour_end": "2026-09-30T17:00:00+05:30",
+          "predicted_demand_mw": 2557.7779766531253,
+          "raw_predicted_demand_mw": 2520.0491324514915,
+          "predicted_solar_mw": 310.80325434699307
+        },
+        {
+          "hour_start": "2026-09-30T17:00:00+05:30",
+          "hour_end": "2026-09-30T18:00:00+05:30",
+          "predicted_demand_mw": 2723.063098764804,
+          "raw_predicted_demand_mw": 2739.317201070704,
+          "predicted_solar_mw": 69.32824169079747
+        },
+        {
+          "hour_start": "2026-09-30T18:00:00+05:30",
+          "hour_end": "2026-09-30T19:00:00+05:30",
+          "predicted_demand_mw": 2950.2705170429585,
+          "raw_predicted_demand_mw": 2905.624284533723,
+          "predicted_solar_mw": 1.012199022924001
+        },
+        {
+          "hour_start": "2026-09-30T19:00:00+05:30",
+          "hour_end": "2026-09-30T20:00:00+05:30",
+          "predicted_demand_mw": 2971.972095517564,
+          "raw_predicted_demand_mw": 2973.8262045928914,
+          "predicted_solar_mw": 1.470472459282894
+        },
+        {
+          "hour_start": "2026-09-30T20:00:00+05:30",
+          "hour_end": "2026-09-30T21:00:00+05:30",
+          "predicted_demand_mw": 2779.818933511394,
+          "raw_predicted_demand_mw": 2800.615326516438,
+          "predicted_solar_mw": 3.1189165148561653
+        },
+        {
+          "hour_start": "2026-09-30T21:00:00+05:30",
+          "hour_end": "2026-09-30T22:00:00+05:30",
+          "predicted_demand_mw": 2590.0002662967267,
+          "raw_predicted_demand_mw": 2564.082790625769,
+          "predicted_solar_mw": 3.1189165148561653
+        },
+        {
+          "hour_start": "2026-09-30T22:00:00+05:30",
+          "hour_end": "2026-09-30T23:00:00+05:30",
+          "predicted_demand_mw": 2368.579075063466,
+          "raw_predicted_demand_mw": 2365.0466022182763,
+          "predicted_solar_mw": 0.298690299611061
+        },
+        {
+          "hour_start": "2026-09-30T23:00:00+05:30",
+          "hour_end": "2026-10-01T00:00:00+05:30",
+          "predicted_demand_mw": 2159.4257907967126,
+          "raw_predicted_demand_mw": 2148.3734365390765,
+          "predicted_solar_mw": 0.26377067399256743
+        }
+      ],
+      "hour_count": 24,
+      "partial_day": false
+    },
+    {
+      "date": "2026-10-01",
+      "hours": [
+        {
+          "hour_start": "2026-10-01T00:00:00+05:30",
+          "hour_end": "2026-10-01T01:00:00+05:30",
+          "predicted_demand_mw": 2045.6398602929064,
+          "raw_predicted_demand_mw": 2036.8427864408036,
+          "predicted_solar_mw": 0.26377067399256743
+        },
+        {
+          "hour_start": "2026-10-01T01:00:00+05:30",
+          "hour_end": "2026-10-01T02:00:00+05:30",
+          "predicted_demand_mw": 1859.3006338013251,
+          "raw_predicted_demand_mw": 1852.5428181653947,
+          "predicted_solar_mw": 0.2776911300322889
+        },
+        {
+          "hour_start": "2026-10-01T02:00:00+05:30",
+          "hour_end": "2026-10-01T03:00:00+05:30",
+          "predicted_demand_mw": 1752.3667383986856,
+          "raw_predicted_demand_mw": 1758.9627473529067,
+          "predicted_solar_mw": 0.604052196548483
+        },
+        {
+          "hour_start": "2026-10-01T03:00:00+05:30",
+          "hour_end": "2026-10-01T04:00:00+05:30",
+          "predicted_demand_mw": 1734.4518091132372,
+          "raw_predicted_demand_mw": 1745.9017768819058,
+          "predicted_solar_mw": 0.628164618780111
+        },
+        {
+          "hour_start": "2026-10-01T04:00:00+05:30",
+          "hour_end": "2026-10-01T05:00:00+05:30",
+          "predicted_demand_mw": 1884.0506016438194,
+          "raw_predicted_demand_mw": 1886.1386944805413,
+          "predicted_solar_mw": 0.604052196548483
+        },
+        {
+          "hour_start": "2026-10-01T05:00:00+05:30",
+          "hour_end": "2026-10-01T06:00:00+05:30",
+          "predicted_demand_mw": 2171.027808721202,
+          "raw_predicted_demand_mw": 2114.2004095368457,
+          "predicted_solar_mw": 0.5626070203374013
+        },
+        {
+          "hour_start": "2026-10-01T06:00:00+05:30",
+          "hour_end": "2026-10-01T07:00:00+05:30",
+          "predicted_demand_mw": 2173.9388749665986,
+          "raw_predicted_demand_mw": 2152.3815162413484,
+          "predicted_solar_mw": 72.20575475978352
+        },
+        {
+          "hour_start": "2026-10-01T07:00:00+05:30",
+          "hour_end": "2026-10-01T08:00:00+05:30",
+          "predicted_demand_mw": 1920.7878898865226,
+          "raw_predicted_demand_mw": 2047.2059187224656,
+          "predicted_solar_mw": 385.4697122066851
+        },
+        {
+          "hour_start": "2026-10-01T08:00:00+05:30",
+          "hour_end": "2026-10-01T09:00:00+05:30",
+          "predicted_demand_mw": 1907.7572632717295,
+          "raw_predicted_demand_mw": 1973.3563338427198,
+          "predicted_solar_mw": 691.9868624029298
+        },
+        {
+          "hour_start": "2026-10-01T09:00:00+05:30",
+          "hour_end": "2026-10-01T10:00:00+05:30",
+          "predicted_demand_mw": 1810.7251694374254,
+          "raw_predicted_demand_mw": 1895.7372527537648,
+          "predicted_solar_mw": 926.5332991723901
+        },
+        {
+          "hour_start": "2026-10-01T10:00:00+05:30",
+          "hour_end": "2026-10-01T11:00:00+05:30",
+          "predicted_demand_mw": 1776.5820194729774,
+          "raw_predicted_demand_mw": 1836.853616854062,
+          "predicted_solar_mw": 1072.246233194235
+        },
+        {
+          "hour_start": "2026-10-01T11:00:00+05:30",
+          "hour_end": "2026-10-01T12:00:00+05:30",
+          "predicted_demand_mw": 1796.5935878252324,
+          "raw_predicted_demand_mw": 1816.9344777881454,
+          "predicted_solar_mw": 1113.6454559806666
+        },
+        {
+          "hour_start": "2026-10-01T12:00:00+05:30",
+          "hour_end": "2026-10-01T13:00:00+05:30",
+          "predicted_demand_mw": 1813.0008241011672,
+          "raw_predicted_demand_mw": 1834.506029071034,
+          "predicted_solar_mw": 1055.783088543773
+        },
+        {
+          "hour_start": "2026-10-01T13:00:00+05:30",
+          "hour_end": "2026-10-01T14:00:00+05:30",
+          "predicted_demand_mw": 1868.0011739369122,
+          "raw_predicted_demand_mw": 1919.489715262344,
+          "predicted_solar_mw": 889.8612888796187
+        },
+        {
+          "hour_start": "2026-10-01T14:00:00+05:30",
+          "hour_end": "2026-10-01T15:00:00+05:30",
+          "predicted_demand_mw": 2098.474031419149,
+          "raw_predicted_demand_mw": 2083.2715031343578,
+          "predicted_solar_mw": 723.7287068607869
+        },
+        {
+          "hour_start": "2026-10-01T15:00:00+05:30",
+          "hour_end": "2026-10-01T16:00:00+05:30",
+          "predicted_demand_mw": 2327.1700196999136,
+          "raw_predicted_demand_mw": 2283.442807851628,
+          "predicted_solar_mw": 436.8603607397265
+        },
+        {
+          "hour_start": "2026-10-01T16:00:00+05:30",
+          "hour_end": "2026-10-01T17:00:00+05:30",
+          "predicted_demand_mw": 2529.756559138715,
+          "raw_predicted_demand_mw": 2492.391033565239,
+          "predicted_solar_mw": 227.84139192669613
+        },
+        {
+          "hour_start": "2026-10-01T17:00:00+05:30",
+          "hour_end": "2026-10-01T18:00:00+05:30",
+          "predicted_demand_mw": 2673.5427748653537,
+          "raw_predicted_demand_mw": 2690.438945194251,
+          "predicted_solar_mw": 47.460335230678425
+        },
+        {
+          "hour_start": "2026-10-01T18:00:00+05:30",
+          "hour_end": "2026-10-01T19:00:00+05:30",
+          "predicted_demand_mw": 2895.1564255996577,
+          "raw_predicted_demand_mw": 2851.2247884917797,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-01T19:00:00+05:30",
+          "hour_end": "2026-10-01T20:00:00+05:30",
+          "predicted_demand_mw": 2899.7633408151846,
+          "raw_predicted_demand_mw": 2902.5536903817692,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-01T20:00:00+05:30",
+          "hour_end": "2026-10-01T21:00:00+05:30",
+          "predicted_demand_mw": 2707.9905724455302,
+          "raw_predicted_demand_mw": 2729.718273853935,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-01T21:00:00+05:30",
+          "hour_end": "2026-10-01T22:00:00+05:30",
+          "predicted_demand_mw": 2503.9397258909826,
+          "raw_predicted_demand_mw": 2479.13808946915,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-01T22:00:00+05:30",
+          "hour_end": "2026-10-01T23:00:00+05:30",
+          "predicted_demand_mw": 2251.826013710746,
+          "raw_predicted_demand_mw": 2249.80733159588,
+          "predicted_solar_mw": 0.0
+        },
+        {
+          "hour_start": "2026-10-01T23:00:00+05:30",
+          "hour_end": "2026-10-02T00:00:00+05:30",
+          "predicted_demand_mw": 2049.329929574696,
+          "raw_predicted_demand_mw": 2039.7050504704644,
+          "predicted_solar_mw": 0.17097317083132058
+        }
+      ],
+      "hour_count": 24,
+      "partial_day": false
+    },
+    {
+      "date": "2026-10-02",
+      "hours": [
+        {
+          "hour_start": "2026-10-02T00:00:00+05:30",
+          "hour_end": "2026-10-02T01:00:00+05:30",
+          "predicted_demand_mw": 1911.3475747590344,
+          "raw_predicted_demand_mw": 1904.2917007918836,
+          "predicted_solar_mw": 0.0
+        },
+        {
+          "hour_start": "2026-10-02T01:00:00+05:30",
+          "hour_end": "2026-10-02T02:00:00+05:30",
+          "predicted_demand_mw": 1766.3067469403761,
+          "raw_predicted_demand_mw": 1760.8011930424916,
+          "predicted_solar_mw": 0.0
+        },
+        {
+          "hour_start": "2026-10-02T02:00:00+05:30",
+          "hour_end": "2026-10-02T03:00:00+05:30",
+          "predicted_demand_mw": 1647.0800646991534,
+          "raw_predicted_demand_mw": 1658.1414215636007,
+          "predicted_solar_mw": 0.0
+        },
+        {
+          "hour_start": "2026-10-02T03:00:00+05:30",
+          "hour_end": "2026-10-02T04:00:00+05:30",
+          "predicted_demand_mw": 1630.6550001070025,
+          "raw_predicted_demand_mw": 1646.5509985762583,
+          "predicted_solar_mw": 0.0
+        },
+        {
+          "hour_start": "2026-10-02T04:00:00+05:30",
+          "hour_end": "2026-10-02T05:00:00+05:30",
+          "predicted_demand_mw": 1763.725438229044,
+          "raw_predicted_demand_mw": 1767.4201632384345,
+          "predicted_solar_mw": 0.0
+        },
+        {
+          "hour_start": "2026-10-02T05:00:00+05:30",
+          "hour_end": "2026-10-02T06:00:00+05:30",
+          "predicted_demand_mw": 2044.007483292671,
+          "raw_predicted_demand_mw": 1988.8269975936541,
+          "predicted_solar_mw": 0.0
+        },
+        {
+          "hour_start": "2026-10-02T06:00:00+05:30",
+          "hour_end": "2026-10-02T07:00:00+05:30",
+          "predicted_demand_mw": 2108.2251572920186,
+          "raw_predicted_demand_mw": 2079.5809608439868,
+          "predicted_solar_mw": 62.12692055449197
+        },
+        {
+          "hour_start": "2026-10-02T07:00:00+05:30",
+          "hour_end": "2026-10-02T08:00:00+05:30",
+          "predicted_demand_mw": 1914.1360474126707,
+          "raw_predicted_demand_mw": 2040.6403223595066,
+          "predicted_solar_mw": 399.0281838585634
+        },
+        {
+          "hour_start": "2026-10-02T08:00:00+05:30",
+          "hour_end": "2026-10-02T09:00:00+05:30",
+          "predicted_demand_mw": 1940.084741735365,
+          "raw_predicted_demand_mw": 2005.2646623785847,
+          "predicted_solar_mw": 711.0067860006072
+        },
+        {
+          "hour_start": "2026-10-02T09:00:00+05:30",
+          "hour_end": "2026-10-02T10:00:00+05:30",
+          "predicted_demand_mw": 1885.0482451513412,
+          "raw_predicted_demand_mw": 1969.0501477553014,
+          "predicted_solar_mw": 964.0147429598403
+        },
+        {
+          "hour_start": "2026-10-02T10:00:00+05:30",
+          "hour_end": "2026-10-02T11:00:00+05:30",
+          "predicted_demand_mw": 1854.6836138311703,
+          "raw_predicted_demand_mw": 1913.8960391806606,
+          "predicted_solar_mw": 1110.5470293361118
+        },
+        {
+          "hour_start": "2026-10-02T11:00:00+05:30",
+          "hour_end": "2026-10-02T12:00:00+05:30",
+          "predicted_demand_mw": 1842.7232625171803,
+          "raw_predicted_demand_mw": 1862.4660467590745,
+          "predicted_solar_mw": 1122.8698797858906
+        },
+        {
+          "hour_start": "2026-10-02T12:00:00+05:30",
+          "hour_end": "2026-10-02T13:00:00+05:30",
+          "predicted_demand_mw": 1830.3734625332124,
+          "raw_predicted_demand_mw": 1851.653418257235,
+          "predicted_solar_mw": 1075.4958253812854
+        },
+        {
+          "hour_start": "2026-10-02T13:00:00+05:30",
+          "hour_end": "2026-10-02T14:00:00+05:30",
+          "predicted_demand_mw": 1866.3942506712247,
+          "raw_predicted_demand_mw": 1917.9036269582048,
+          "predicted_solar_mw": 826.6161323841264
+        },
+        {
+          "hour_start": "2026-10-02T14:00:00+05:30",
+          "hour_end": "2026-10-02T15:00:00+05:30",
+          "predicted_demand_mw": 2057.361490877736,
+          "raw_predicted_demand_mw": 2042.6920174186641,
+          "predicted_solar_mw": 570.2250150334712
+        },
+        {
+          "hour_start": "2026-10-02T15:00:00+05:30",
+          "hour_end": "2026-10-02T16:00:00+05:30",
+          "predicted_demand_mw": 2269.221603185056,
+          "raw_predicted_demand_mw": 2226.245735881751,
+          "predicted_solar_mw": 439.10726712751
+        },
+        {
+          "hour_start": "2026-10-02T16:00:00+05:30",
+          "hour_end": "2026-10-02T17:00:00+05:30",
+          "predicted_demand_mw": 2463.67222920191,
+          "raw_predicted_demand_mw": 2427.1635363737078,
+          "predicted_solar_mw": 182.46788148650182
+        },
+        {
+          "hour_start": "2026-10-02T17:00:00+05:30",
+          "hour_end": "2026-10-02T18:00:00+05:30",
+          "predicted_demand_mw": 2586.7437499906846,
+          "raw_predicted_demand_mw": 2604.765334571971,
+          "predicted_solar_mw": 23.23392378397119
+        },
+        {
+          "hour_start": "2026-10-02T18:00:00+05:30",
+          "hour_end": "2026-10-02T19:00:00+05:30",
+          "predicted_demand_mw": 2786.2141424299703,
+          "raw_predicted_demand_mw": 2747.029228012184,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-02T19:00:00+05:30",
+          "hour_end": "2026-10-02T20:00:00+05:30",
+          "predicted_demand_mw": 2761.365158658042,
+          "raw_predicted_demand_mw": 2769.2841486676575,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-02T20:00:00+05:30",
+          "hour_end": "2026-10-02T21:00:00+05:30",
+          "predicted_demand_mw": 2555.5705926534465,
+          "raw_predicted_demand_mw": 2579.274533055948,
+          "predicted_solar_mw": 0.5309715283342722
+        },
+        {
+          "hour_start": "2026-10-02T21:00:00+05:30",
+          "hour_end": "2026-10-02T22:00:00+05:30",
+          "predicted_demand_mw": 2365.8692955028464,
+          "raw_predicted_demand_mw": 2342.8578454387143,
+          "predicted_solar_mw": 0.5626070203374013
+        },
+        {
+          "hour_start": "2026-10-02T22:00:00+05:30",
+          "hour_end": "2026-10-02T23:00:00+05:30",
+          "predicted_demand_mw": 2161.824417767808,
+          "raw_predicted_demand_mw": 2153.0338084306295,
+          "predicted_solar_mw": 0.23624595382120722
+        },
+        {
+          "hour_start": "2026-10-02T23:00:00+05:30",
+          "hour_end": "2026-10-03T00:00:00+05:30",
+          "predicted_demand_mw": 1980.9688446689895,
+          "raw_predicted_demand_mw": 1972.2303181404093,
+          "predicted_solar_mw": 0.17097317083132058
+        }
+      ],
+      "hour_count": 24,
+      "partial_day": false
+    },
+    {
+      "date": "2026-10-03",
+      "hours": [
+        {
+          "hour_start": "2026-10-03T00:00:00+05:30",
+          "hour_end": "2026-10-03T01:00:00+05:30",
+          "predicted_demand_mw": 1754.2288898058534,
+          "raw_predicted_demand_mw": 1749.256703526623,
+          "predicted_solar_mw": 0.17097317083132058
+        },
+        {
+          "hour_start": "2026-10-03T01:00:00+05:30",
+          "hour_end": "2026-10-03T02:00:00+05:30",
+          "predicted_demand_mw": 1665.4977608885279,
+          "raw_predicted_demand_mw": 1661.2992708641773,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-03T02:00:00+05:30",
+          "hour_end": "2026-10-03T03:00:00+05:30",
+          "predicted_demand_mw": 1596.55767207331,
+          "raw_predicted_demand_mw": 1608.2740895309844,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-03T03:00:00+05:30",
+          "hour_end": "2026-10-03T04:00:00+05:30",
+          "predicted_demand_mw": 1568.8088882320715,
+          "raw_predicted_demand_mw": 1585.5067677807451,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-03T04:00:00+05:30",
+          "hour_end": "2026-10-03T05:00:00+05:30",
+          "predicted_demand_mw": 1596.7316402410638,
+          "raw_predicted_demand_mw": 1605.6917921621261,
+          "predicted_solar_mw": 0.5071809528113813
+        },
+        {
+          "hour_start": "2026-10-03T05:00:00+05:30",
+          "hour_end": "2026-10-03T06:00:00+05:30",
+          "predicted_demand_mw": 1777.2907631163926,
+          "raw_predicted_demand_mw": 1725.614985572427,
+          "predicted_solar_mw": 0.7223586859235606
+        },
+        {
+          "hour_start": "2026-10-03T06:00:00+05:30",
+          "hour_end": "2026-10-03T07:00:00+05:30",
+          "predicted_demand_mw": 1847.0682520667474,
+          "raw_predicted_demand_mw": 1821.8566766161573,
+          "predicted_solar_mw": 80.14086533188694
+        },
+        {
+          "hour_start": "2026-10-03T07:00:00+05:30",
+          "hour_end": "2026-10-03T08:00:00+05:30",
+          "predicted_demand_mw": 1641.5786766048084,
+          "raw_predicted_demand_mw": 1774.7636155774871,
+          "predicted_solar_mw": 409.45571660504356
+        },
+        {
+          "hour_start": "2026-10-03T08:00:00+05:30",
+          "hour_end": "2026-10-03T09:00:00+05:30",
+          "predicted_demand_mw": 1582.613057596481,
+          "raw_predicted_demand_mw": 1655.5746198236734,
+          "predicted_solar_mw": 747.7730364585751
+        },
+        {
+          "hour_start": "2026-10-03T09:00:00+05:30",
+          "hour_end": "2026-10-03T10:00:00+05:30",
+          "predicted_demand_mw": 1397.986357950348,
+          "raw_predicted_demand_mw": 1502.7843980732964,
+          "predicted_solar_mw": 974.9040852875294
+        },
+        {
+          "hour_start": "2026-10-03T10:00:00+05:30",
+          "hour_end": "2026-10-03T11:00:00+05:30",
+          "predicted_demand_mw": 1274.6744790257758,
+          "raw_predicted_demand_mw": 1355.8881724510247,
+          "predicted_solar_mw": 1131.3773564115554
+        },
+        {
+          "hour_start": "2026-10-03T11:00:00+05:30",
+          "hour_end": "2026-10-03T12:00:00+05:30",
+          "predicted_demand_mw": 1221.843531708688,
+          "raw_predicted_demand_mw": 1264.0709753917881,
+          "predicted_solar_mw": 1141.6931289044505
+        },
+        {
+          "hour_start": "2026-10-03T12:00:00+05:30",
+          "hour_end": "2026-10-03T13:00:00+05:30",
+          "predicted_demand_mw": 1208.8549868909179,
+          "raw_predicted_demand_mw": 1252.6278838604712,
+          "predicted_solar_mw": 1070.741811767485
+        },
+        {
+          "hour_start": "2026-10-03T13:00:00+05:30",
+          "hour_end": "2026-10-03T14:00:00+05:30",
+          "predicted_demand_mw": 1232.6731730594533,
+          "raw_predicted_demand_mw": 1306.8802329181622,
+          "predicted_solar_mw": 906.5023146090502
+        },
+        {
+          "hour_start": "2026-10-03T14:00:00+05:30",
+          "hour_end": "2026-10-03T15:00:00+05:30",
+          "predicted_demand_mw": 1421.9999111974466,
+          "raw_predicted_demand_mw": 1430.0493916459359,
+          "predicted_solar_mw": 613.9765557324738
+        },
+        {
+          "hour_start": "2026-10-03T15:00:00+05:30",
+          "hour_end": "2026-10-03T16:00:00+05:30",
+          "predicted_demand_mw": 1652.184028278684,
+          "raw_predicted_demand_mw": 1612.4164031933997,
+          "predicted_solar_mw": 432.1341966505387
+        },
+        {
+          "hour_start": "2026-10-03T16:00:00+05:30",
+          "hour_end": "2026-10-03T17:00:00+05:30",
+          "predicted_demand_mw": 1900.5830541708838,
+          "raw_predicted_demand_mw": 1863.4363682849842,
+          "predicted_solar_mw": 224.7694863822845
+        },
+        {
+          "hour_start": "2026-10-03T17:00:00+05:30",
+          "hour_end": "2026-10-03T18:00:00+05:30",
+          "predicted_demand_mw": 2115.358596980976,
+          "raw_predicted_demand_mw": 2131.5531772969716,
+          "predicted_solar_mw": 32.67229787859736
+        },
+        {
+          "hour_start": "2026-10-03T18:00:00+05:30",
+          "hour_end": "2026-10-03T19:00:00+05:30",
+          "predicted_demand_mw": 2386.4639146900404,
+          "raw_predicted_demand_mw": 2352.462060846309,
+          "predicted_solar_mw": 3.4754485502179255
+        },
+        {
+          "hour_start": "2026-10-03T19:00:00+05:30",
+          "hour_end": "2026-10-03T20:00:00+05:30",
+          "predicted_demand_mw": 2468.398389642005,
+          "raw_predicted_demand_mw": 2480.115912847162,
+          "predicted_solar_mw": 0.5309715283342722
+        },
+        {
+          "hour_start": "2026-10-03T20:00:00+05:30",
+          "hour_end": "2026-10-03T21:00:00+05:30",
+          "predicted_demand_mw": 2290.5655593464176,
+          "raw_predicted_demand_mw": 2317.7054881355307,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-03T21:00:00+05:30",
+          "hour_end": "2026-10-03T22:00:00+05:30",
+          "predicted_demand_mw": 2130.3690648410156,
+          "raw_predicted_demand_mw": 2102.472186135082,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-03T22:00:00+05:30",
+          "hour_end": "2026-10-03T23:00:00+05:30",
+          "predicted_demand_mw": 1895.9295150366065,
+          "raw_predicted_demand_mw": 1890.5864319084315,
+          "predicted_solar_mw": 0.20900604910266996
+        },
+        {
+          "hour_start": "2026-10-03T23:00:00+05:30",
+          "hour_end": "2026-10-04T00:00:00+05:30",
+          "predicted_demand_mw": 1705.08193410492,
+          "raw_predicted_demand_mw": 1699.967014105819,
+          "predicted_solar_mw": 0.17097317083132058
+        }
+      ],
+      "hour_count": 24,
+      "partial_day": false
+    },
+    {
+      "date": "2026-10-04",
+      "hours": [
+        {
+          "hour_start": "2026-10-04T00:00:00+05:30",
+          "hour_end": "2026-10-04T01:00:00+05:30",
+          "predicted_demand_mw": 1527.2732553982414,
+          "raw_predicted_demand_mw": 1528.3439460700527,
+          "predicted_solar_mw": 0.17097317083132058
+        },
+        {
+          "hour_start": "2026-10-04T01:00:00+05:30",
+          "hour_end": "2026-10-04T02:00:00+05:30",
+          "predicted_demand_mw": 1409.1214170568264,
+          "raw_predicted_demand_mw": 1422.681527542258,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-04T02:00:00+05:30",
+          "hour_end": "2026-10-04T03:00:00+05:30",
+          "predicted_demand_mw": 1365.815966710816,
+          "raw_predicted_demand_mw": 1391.8583849562826,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-04T03:00:00+05:30",
+          "hour_end": "2026-10-04T04:00:00+05:30",
+          "predicted_demand_mw": 1336.7993494439743,
+          "raw_predicted_demand_mw": 1367.8396681886927,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-04T04:00:00+05:30",
+          "hour_end": "2026-10-04T05:00:00+05:30",
+          "predicted_demand_mw": 1336.7771239962055,
+          "raw_predicted_demand_mw": 1360.442042638973,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-04T05:00:00+05:30",
+          "hour_end": "2026-10-04T06:00:00+05:30",
+          "predicted_demand_mw": 1464.5188510803143,
+          "raw_predicted_demand_mw": 1431.332884751786,
+          "predicted_solar_mw": 0.9134013692324038
+        },
+        {
+          "hour_start": "2026-10-04T06:00:00+05:30",
+          "hour_end": "2026-10-04T07:00:00+05:30",
+          "predicted_demand_mw": 1529.1182982757452,
+          "raw_predicted_demand_mw": 1511.1294091584843,
+          "predicted_solar_mw": 82.70913581495537
+        },
+        {
+          "hour_start": "2026-10-04T07:00:00+05:30",
+          "hour_end": "2026-10-04T08:00:00+05:30",
+          "predicted_demand_mw": 1297.3259152686117,
+          "raw_predicted_demand_mw": 1446.3086107357972,
+          "predicted_solar_mw": 405.77266132561124
+        },
+        {
+          "hour_start": "2026-10-04T08:00:00+05:30",
+          "hour_end": "2026-10-04T09:00:00+05:30",
+          "predicted_demand_mw": 1206.8030121183397,
+          "raw_predicted_demand_mw": 1295.9714946225965,
+          "predicted_solar_mw": 748.7600273003244
+        },
+        {
+          "hour_start": "2026-10-04T09:00:00+05:30",
+          "hour_end": "2026-10-04T10:00:00+05:30",
+          "predicted_demand_mw": 1011.8996191947566,
+          "raw_predicted_demand_mw": 1121.7035625416343,
+          "predicted_solar_mw": 938.1785493844413
+        },
+        {
+          "hour_start": "2026-10-04T10:00:00+05:30",
+          "hour_end": "2026-10-04T11:00:00+05:30",
+          "predicted_demand_mw": 939.6948650729584,
+          "raw_predicted_demand_mw": 1025.2518196390631,
+          "predicted_solar_mw": 1140.3372826267894
+        },
+        {
+          "hour_start": "2026-10-04T11:00:00+05:30",
+          "hour_end": "2026-10-04T12:00:00+05:30",
+          "predicted_demand_mw": 955.004964940618,
+          "raw_predicted_demand_mw": 1000.6921701424853,
+          "predicted_solar_mw": 1159.0277970467762
+        },
+        {
+          "hour_start": "2026-10-04T12:00:00+05:30",
+          "hour_end": "2026-10-04T13:00:00+05:30",
+          "predicted_demand_mw": 988.5925869852687,
+          "raw_predicted_demand_mw": 1035.2213506477626,
+          "predicted_solar_mw": 1085.3389229124537
+        },
+        {
+          "hour_start": "2026-10-04T13:00:00+05:30",
+          "hour_end": "2026-10-04T14:00:00+05:30",
+          "predicted_demand_mw": 1036.0709645429101,
+          "raw_predicted_demand_mw": 1112.827119023767,
+          "predicted_solar_mw": 914.7768805788207
+        },
+        {
+          "hour_start": "2026-10-04T14:00:00+05:30",
+          "hour_end": "2026-10-04T15:00:00+05:30",
+          "predicted_demand_mw": 1212.2061858862542,
+          "raw_predicted_demand_mw": 1222.9757988347105,
+          "predicted_solar_mw": 635.316322326382
+        },
+        {
+          "hour_start": "2026-10-04T15:00:00+05:30",
+          "hour_end": "2026-10-04T16:00:00+05:30",
+          "predicted_demand_mw": 1375.2048721038407,
+          "raw_predicted_demand_mw": 1350.3627509253465,
+          "predicted_solar_mw": 437.50741685778996
+        },
+        {
+          "hour_start": "2026-10-04T16:00:00+05:30",
+          "hour_end": "2026-10-04T17:00:00+05:30",
+          "predicted_demand_mw": 1600.1844326348553,
+          "raw_predicted_demand_mw": 1570.0793934058715,
+          "predicted_solar_mw": 237.163746594526
+        },
+        {
+          "hour_start": "2026-10-04T17:00:00+05:30",
+          "hour_end": "2026-10-04T18:00:00+05:30",
+          "predicted_demand_mw": 1832.6087148840716,
+          "raw_predicted_demand_mw": 1852.5158852865386,
+          "predicted_solar_mw": 31.641363776880443
+        },
+        {
+          "hour_start": "2026-10-04T18:00:00+05:30",
+          "hour_end": "2026-10-04T19:00:00+05:30",
+          "predicted_demand_mw": 2141.098618006338,
+          "raw_predicted_demand_mw": 2102.3392434773496,
+          "predicted_solar_mw": 0.746149261446451
+        },
+        {
+          "hour_start": "2026-10-04T19:00:00+05:30",
+          "hour_end": "2026-10-04T20:00:00+05:30",
+          "predicted_demand_mw": 2222.284828186322,
+          "raw_predicted_demand_mw": 2237.1933977214167,
+          "predicted_solar_mw": 0.5626070203374013
+        },
+        {
+          "hour_start": "2026-10-04T20:00:00+05:30",
+          "hour_end": "2026-10-04T21:00:00+05:30",
+          "predicted_demand_mw": 2077.584806401661,
+          "raw_predicted_demand_mw": 2099.547324683788,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-04T21:00:00+05:30",
+          "hour_end": "2026-10-04T22:00:00+05:30",
+          "predicted_demand_mw": 1914.8571933591622,
+          "raw_predicted_demand_mw": 1889.7545871934437,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-04T22:00:00+05:30",
+          "hour_end": "2026-10-04T23:00:00+05:30",
+          "predicted_demand_mw": 1698.7571743503743,
+          "raw_predicted_demand_mw": 1696.0171045026286,
+          "predicted_solar_mw": 0.20900604910266996
+        },
+        {
+          "hour_start": "2026-10-04T23:00:00+05:30",
+          "hour_end": "2026-10-05T00:00:00+05:30",
+          "predicted_demand_mw": 1512.2946939747396,
+          "raw_predicted_demand_mw": 1512.7796321490318,
+          "predicted_solar_mw": 0.17097317083132058
+        }
+      ],
+      "hour_count": 24,
+      "partial_day": false
+    },
+    {
+      "date": "2026-10-05",
+      "hours": [
+        {
+          "hour_start": "2026-10-05T00:00:00+05:30",
+          "hour_end": "2026-10-05T01:00:00+05:30",
+          "predicted_demand_mw": 1354.780306826013,
+          "raw_predicted_demand_mw": 1369.4217596044173,
+          "predicted_solar_mw": 0.17097317083132058
+        },
+        {
+          "hour_start": "2026-10-05T01:00:00+05:30",
+          "hour_end": "2026-10-05T02:00:00+05:30",
+          "predicted_demand_mw": 1312.9774549633103,
+          "raw_predicted_demand_mw": 1327.7841437988723,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-05T02:00:00+05:30",
+          "hour_end": "2026-10-05T03:00:00+05:30",
+          "predicted_demand_mw": 1302.1447627993034,
+          "raw_predicted_demand_mw": 1329.0127258069635,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-05T03:00:00+05:30",
+          "hour_end": "2026-10-05T04:00:00+05:30",
+          "predicted_demand_mw": 1308.8113238373883,
+          "raw_predicted_demand_mw": 1340.214528259214,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-05T04:00:00+05:30",
+          "hour_end": "2026-10-05T05:00:00+05:30",
+          "predicted_demand_mw": 1428.1383182773093,
+          "raw_predicted_demand_mw": 1450.6186707304482,
+          "predicted_solar_mw": 0.0
+        },
+        {
+          "hour_start": "2026-10-05T05:00:00+05:30",
+          "hour_end": "2026-10-05T06:00:00+05:30",
+          "predicted_demand_mw": 1696.298130004609,
+          "raw_predicted_demand_mw": 1645.672482502705,
+          "predicted_solar_mw": 0.16705682739716143
+        },
+        {
+          "hour_start": "2026-10-05T06:00:00+05:30",
+          "hour_end": "2026-10-05T07:00:00+05:30",
+          "predicted_demand_mw": 1788.464955449195,
+          "raw_predicted_demand_mw": 1764.013215553735,
+          "predicted_solar_mw": 79.8625776229578
+        },
+        {
+          "hour_start": "2026-10-05T07:00:00+05:30",
+          "hour_end": "2026-10-05T08:00:00+05:30",
+          "predicted_demand_mw": 1669.071300631737,
+          "raw_predicted_demand_mw": 1798.7995497105558,
+          "predicted_solar_mw": 402.4506940801634
+        },
+        {
+          "hour_start": "2026-10-05T08:00:00+05:30",
+          "hour_end": "2026-10-05T09:00:00+05:30",
+          "predicted_demand_mw": 1733.6768597074104,
+          "raw_predicted_demand_mw": 1801.5795393294645,
+          "predicted_solar_mw": 751.0312120694149
+        },
+        {
+          "hour_start": "2026-10-05T09:00:00+05:30",
+          "hour_end": "2026-10-05T10:00:00+05:30",
+          "predicted_demand_mw": 1688.6641653040926,
+          "raw_predicted_demand_mw": 1775.2588607973653,
+          "predicted_solar_mw": 959.750563156944
+        },
+        {
+          "hour_start": "2026-10-05T10:00:00+05:30",
+          "hour_end": "2026-10-05T11:00:00+05:30",
+          "predicted_demand_mw": 1667.479069122037,
+          "raw_predicted_demand_mw": 1729.165267824737,
+          "predicted_solar_mw": 1127.9863620868382
+        },
+        {
+          "hour_start": "2026-10-05T11:00:00+05:30",
+          "hour_end": "2026-10-05T12:00:00+05:30",
+          "predicted_demand_mw": 1666.941406915496,
+          "raw_predicted_demand_mw": 1688.9633343377564,
+          "predicted_solar_mw": 1146.7680317316078
+        },
+        {
+          "hour_start": "2026-10-05T12:00:00+05:30",
+          "hour_end": "2026-10-05T13:00:00+05:30",
+          "predicted_demand_mw": 1642.855104127291,
+          "raw_predicted_demand_mw": 1669.6666030338965,
+          "predicted_solar_mw": 1040.0176063750405
+        },
+        {
+          "hour_start": "2026-10-05T13:00:00+05:30",
+          "hour_end": "2026-10-05T14:00:00+05:30",
+          "predicted_demand_mw": 1609.8293609709115,
+          "raw_predicted_demand_mw": 1667.8120468094708,
+          "predicted_solar_mw": 887.4992165782537
+        },
+        {
+          "hour_start": "2026-10-05T14:00:00+05:30",
+          "hour_end": "2026-10-05T15:00:00+05:30",
+          "predicted_demand_mw": 1724.4119838311733,
+          "raw_predicted_demand_mw": 1714.1059761275628,
+          "predicted_solar_mw": 734.2939843657836
+        },
+        {
+          "hour_start": "2026-10-05T15:00:00+05:30",
+          "hour_end": "2026-10-05T16:00:00+05:30",
+          "predicted_demand_mw": 1889.4187412491135,
+          "raw_predicted_demand_mw": 1843.4284368056701,
+          "predicted_solar_mw": 570.4126256673019
+        },
+        {
+          "hour_start": "2026-10-05T16:00:00+05:30",
+          "hour_end": "2026-10-05T17:00:00+05:30",
+          "predicted_demand_mw": 2073.6119463271652,
+          "raw_predicted_demand_mw": 2034.2218114902091,
+          "predicted_solar_mw": 285.3400684077033
+        },
+        {
+          "hour_start": "2026-10-05T17:00:00+05:30",
+          "hour_end": "2026-10-05T18:00:00+05:30",
+          "predicted_demand_mw": 2207.333430402297,
+          "raw_predicted_demand_mw": 2230.2743534414158,
+          "predicted_solar_mw": 40.382566697576884
+        },
+        {
+          "hour_start": "2026-10-05T18:00:00+05:30",
+          "hour_end": "2026-10-05T19:00:00+05:30",
+          "predicted_demand_mw": 2434.4264064121708,
+          "raw_predicted_demand_mw": 2399.8026830043273,
+          "predicted_solar_mw": 0.7505448487310428
+        },
+        {
+          "hour_start": "2026-10-05T19:00:00+05:30",
+          "hour_end": "2026-10-05T20:00:00+05:30",
+          "predicted_demand_mw": 2390.3464248604632,
+          "raw_predicted_demand_mw": 2403.0759501442026,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-05T20:00:00+05:30",
+          "hour_end": "2026-10-05T21:00:00+05:30",
+          "predicted_demand_mw": 2186.8301089848196,
+          "raw_predicted_demand_mw": 2215.3150454452,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-05T21:00:00+05:30",
+          "hour_end": "2026-10-05T22:00:00+05:30",
+          "predicted_demand_mw": 2014.2614142439952,
+          "raw_predicted_demand_mw": 1987.8699580353993,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-05T22:00:00+05:30",
+          "hour_end": "2026-10-05T23:00:00+05:30",
+          "predicted_demand_mw": 1807.7420693555573,
+          "raw_predicted_demand_mw": 1803.5889288620172,
+          "predicted_solar_mw": 0.535367115618864
+        },
+        {
+          "hour_start": "2026-10-05T23:00:00+05:30",
+          "hour_end": "2026-10-06T00:00:00+05:30",
+          "predicted_demand_mw": 1628.077583348839,
+          "raw_predicted_demand_mw": 1627.0613097978548,
+          "predicted_solar_mw": 0.17097317083132058
+        }
+      ],
+      "hour_count": 24,
+      "partial_day": false
+    }
+  ]
+}

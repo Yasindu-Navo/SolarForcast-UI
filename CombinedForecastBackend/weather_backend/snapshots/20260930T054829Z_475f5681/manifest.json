@@ -1,0 +1,150 @@
+{
+  "snapshot_id": "20260930T054829Z_475f5681",
+  "retrieved_at": "2026-09-30T05:48:29.583246+00:00",
+  "provider_issue_time": null,
+  "window_start": "2026-09-30T12:00:00+05:30",
+  "window_end": "2026-10-07T12:00:00+05:30",
+  "first_interval_end": "2026-09-30T12:15:00+05:30",
+  "timezone": "Asia/Colombo",
+  "locations": [
+    {
+      "name": "Anuradhapura_NorthCentral",
+      "latitude": 8.312229,
+      "longitude": 80.413055,
+      "grid_latitude": 8.330404,
+      "grid_longitude": 80.42882
+    },
+    {
+      "name": "Vavuniya_Northern",
+      "latitude": 8.7514,
+      "longitude": 80.4971,
+      "grid_latitude": 8.752197,
+      "grid_longitude": 80.53448
+    },
+    {
+      "name": "Hambantota_Southern",
+      "latitude": 6.123372,
+      "longitude": 81.120508,
+      "grid_latitude": 6.1511426,
+      "grid_longitude": 81.127815
+    },
+    {
+      "name": "Kandy_Central",
+      "latitude": 7.290572,
+      "longitude": 80.633726,
+      "grid_latitude": 7.275923,
+      "grid_longitude": 80.62659
+    },
+    {
+      "name": "Kalutara_Western",
+      "latitude": 6.57932,
+      "longitude": 79.964755,
+      "grid_latitude": 6.572935,
+      "grid_longitude": 80.02519
+    },
+    {
+      "name": "Moneragala_Uva",
+      "latitude": 6.872778,
+      "longitude": 81.35,
+      "grid_latitude": 6.8541303,
+      "grid_longitude": 81.35636
+    },
+    {
+      "name": "Galle_Southern",
+      "latitude": 6.0461,
+      "longitude": 80.2103,
+      "grid_latitude": 6.0808434,
+      "grid_longitude": 80.23373
+    },
+    {
+      "name": "Badulla_Uva",
+      "latitude": 6.984722,
+      "longitude": 81.056389,
+      "grid_latitude": 7.0650263,
+      "grid_longitude": 81.0304
+    },
+    {
+      "name": "Jaffna_Northern",
+      "latitude": 9.666667,
+      "longitude": 80.0,
+      "grid_latitude": 9.66608,
+      "grid_longitude": 80.034874
+    },
+    {
+      "name": "Colombo_Western",
+      "latitude": 6.927547,
+      "longitude": 79.848411,
+      "grid_latitude": 6.924429,
+      "grid_longitude": 79.90725
+    },
+    {
+      "name": "Polonnaruwa_NorthCentral",
+      "latitude": 7.93965,
+      "longitude": 81.002744,
+      "grid_latitude": 7.908612,
+      "grid_longitude": 81.01536
+    },
+    {
+      "name": "Matara_Southern",
+      "latitude": 5.948509,
+      "longitude": 80.535278,
+      "grid_latitude": 6.010545,
+      "grid_longitude": 80.542114
+    },
+    {
+      "name": "Gampaha_Western",
+      "latitude": 7.089961,
+      "longitude": 79.99943,
+      "grid_latitude": 7.0650263,
+      "grid_longitude": 79.96622
+    },
+    {
+      "name": "Kurunegala_NorthWestern",
+      "latitude": 7.483636,
+      "longitude": 80.366614,
+      "grid_latitude": 7.4868193,
+      "grid_longitude": 80.37352
+    },
+    {
+      "name": "Kilinochchi_Northern",
+      "latitude": 9.38338,
+      "longitude": 80.400167,
+      "grid_latitude": 9.384886,
+      "grid_longitude": 80.38228
+    }
+  ],
+  "row_count": 10080,
+  "intervals_per_location": 672,
+  "source": "Open-Meteo",
+  "source_url": "https://open-meteo.com/",
+  "request_parameters": {
+    "latitude": "8.312229,8.7514,6.123372,7.290572,6.57932,6.872778,6.0461,6.984722,9.666667,6.927547,7.93965,5.948509,7.089961,7.483636,9.38338",
+    "longitude": "80.413055,80.4971,81.120508,80.633726,79.964755,81.35,80.2103,81.056389,80.0,79.848411,81.002744,80.535278,79.99943,80.366614,80.400167",
+    "minutely_15": "temperature_2m,shortwave_radiation,wind_speed_10m",
+    "timezone": "Asia/Colombo",
+    "temperature_unit": "celsius",
+    "wind_speed_unit": "ms",
+    "start_minutely_15": "2026-09-30T12:15",
+    "end_minutely_15": "2026-10-07T12:00"
+  },
+  "units": {
+    "air_temp": "C",
+    "ghi": "W/m2",
+    "wind_speed_10m": "m/s",
+    "azimuth": "degrees clockwise from north",
+    "zenith": "degrees from vertical, geometric"
+  },
+  "solar_position_time": "interval end",
+  "radiation_time": "preceding 15-minute mean",
+  "regional_resolution": "15-minute weather interpolated by provider from hourly data",
+  "legacy_weather_shift_applied": false,
+  "scaling_applied": false,
+  "ready_for_existing_lstm": false,
+  "solar_predictions_available": false,
+  "limitations": [
+    "Weather inputs only; existing model predicts one hour, not seven days.",
+    "Retrieved time is not the provider forecast issue time.",
+    "Open-Meteo source and pvlib angle conventions differ from legacy training inputs."
+  ],
+  "csv_sha256": "3de3a4c5fde5faa35328ae2cd358fa00394b6e04b5c67371e50080d0518b03ca"
+}
